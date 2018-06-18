@@ -21,6 +21,10 @@ public class Views {
 
 	}
 	
+	public static class ViewFormateurWithFormations extends ViewFormation {
+
+	}
+	
 	public static class ViewMatiereWithModules extends ViewFormation {
 
 	}
