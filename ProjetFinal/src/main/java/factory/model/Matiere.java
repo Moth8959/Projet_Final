@@ -50,8 +50,7 @@ public class Matiere {
 	@Column(name = "prerequisites", length = 200)
 	@JsonView(Views.ViewCommon.class)
 	private Matiere prerequis;
-	@ManyToMany
-	@JoinTable(name = "subject_trainer", joinColumns = @JoinColumn(name = "subject_id"), inverseJoinColumns = @JoinColumn(name = "trainer_id"))
+	@ManyToMany(mappedBy = "matieres")
 	@JsonView(Views.ViewMatiere.class)
 	private Formateur formateur;
 	@OneToMany(mappedBy = "matiere")
