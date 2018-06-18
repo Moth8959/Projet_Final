@@ -8,40 +8,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 
-
-@Entity
-@Table(name = "resource")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+@MappedSuperclass
 public abstract class RessourcesMaterielles {
 
-	@Id
-	@GeneratedValue
-	@JsonView(View.ViewCommon.class)
-	private Long id;
 	@Version
-	@JsonView(View.ViewCommon.class)
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@Id
 	@Column(length = 10)
-	@JsonView(View.ViewCommon.class)
+	@JsonView(Views.ViewCommon.class)
 	private String code;
-	@JsonView(View.ViewCommon.class)
+	@Column(name = "usingCost")
+	@JsonView(Views.ViewCommon.class)
 	private Double coutUtilisation;
 	
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public int getVersion() {
 		return version;
 	}
