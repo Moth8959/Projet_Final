@@ -1,6 +1,7 @@
 package factory.model;
 
 public class Views {
+	
 	public static class ViewCommon {
 
 	}
@@ -17,7 +18,18 @@ public class Views {
 
 	}
 	
+	public static class ViewGestionnaire extends ViewCommon {
 
+	}
+	
+	public static class ViewVideoProjecteur extends ViewCommon {
+		
+	}
+	
+	public static class ViewOrdinateur extends ViewCommon {
+		
+	}
+	
 	public static class ViewModule extends ViewCommon{
 		
 	}
@@ -26,18 +38,7 @@ public class Views {
 		
 	}
 	
-
-	public static class ViewGestionnaire extends ViewCommon {
-
-	}
-	
 	public static class ViewGestionnaireWithFormations extends ViewGestionnaire {
-		
-	}
-
-	
-	public static class ViewOrdinateur extends ViewCommon {
-
 		
 	}
 	
@@ -45,6 +46,9 @@ public class Views {
 
 	}
 	
+	public static class ViewOrdinateurWithStagiaires extends ViewOrdinateur {
+
+	}
 	
 	public static class ViewFormateurWithFormations extends ViewFormateur {
 

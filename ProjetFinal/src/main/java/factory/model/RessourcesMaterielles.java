@@ -1,15 +1,8 @@
 package factory.model;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -29,7 +22,16 @@ public abstract class RessourcesMaterielles {
 	@JsonView(Views.ViewCommon.class)
 	private Double coutUtilisation;
 	
+	public RessourcesMaterielles() {
+		super();
+	}
 	
+	public RessourcesMaterielles(int version, String code, Double coutUtilisation) {
+		super();
+		this.version = version;
+		this.code = code;
+		this.coutUtilisation = coutUtilisation;
+	}
 	
 	public int getVersion() {
 		return version;

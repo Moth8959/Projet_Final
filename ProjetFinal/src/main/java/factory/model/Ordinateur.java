@@ -1,12 +1,12 @@
 package factory.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -21,12 +21,15 @@ public class Ordinateur extends RessourcesMaterielles{
 	private String processeur;
 	@JsonView(Views.ViewCommon.class)
 	private int ram;
-	@Column(name = "hardDriveCapacity")
+	@Column(name = "hard_drive_capacity")
 	@JsonView(Views.ViewCommon.class)
 	private int capaciteDD;
-	@Column(name = "yearOfPurchase")
+	@Column(name = "year_of_purchase")
 	@JsonView(Views.ViewCommon.class)
 	private int anneeAchat;
+	@OneToMany(mappedBy="ordinateur")
+	@JsonView(Views.ViewOrdinateurWithStagiaires.class)
+	private List<Stagiaire> stagiaires = new ArrayList<>();
 	
 	
 	public Ordinateur() {
@@ -34,8 +37,8 @@ public class Ordinateur extends RessourcesMaterielles{
 	}
 	
 	
-	public Ordinateur(String processeur, int ram, int capaciteDD, int anneeAchat) {
-		super();
+	public Ordinateur(int version, String code, Double coutUtilisation, String processeur, int ram, int capaciteDD, int anneeAchat) {
+		super(version, code, coutUtilisation);
 		this.processeur = processeur;
 		this.ram = ram;
 		this.capaciteDD = capaciteDD;
@@ -66,7 +69,20 @@ public class Ordinateur extends RessourcesMaterielles{
 	public void setAnneeAchat(int anneeAchat) {
 		this.anneeAchat = anneeAchat;
 	}
+
+
+	public List<Stagiaire> getStagiaires() {
+		return stagiaires;
+	}
+
+
+	public void setStagiaires(List<Stagiaire> stagiaires) {
+		this.stagiaires = stagiaires;
+	}
 	
+	public void addStagiaires(Stagiaire stagiaire) {
+		this.stagiaires.add(stagiaire);
+	}
 	
 	
 }
