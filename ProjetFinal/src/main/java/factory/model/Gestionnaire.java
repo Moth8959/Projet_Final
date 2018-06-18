@@ -20,7 +20,8 @@ public class Gestionnaire extends RessourcesHumaines {
 	private Long id; 
 	
 	@Id
-	@OneToMany(mappedBy="formation")
+	@OneToMany(mappedBy="gestionnaire")
+	@JsonView(Views.ViewGestionnaire.class)
 	private Formation formation;
 
 	public Gestionnaire() {
@@ -33,7 +34,6 @@ public class Gestionnaire extends RessourcesHumaines {
 		this.id = id;
 		this.formation = formation;
 	}
-
 
 
 	public Long getId() {

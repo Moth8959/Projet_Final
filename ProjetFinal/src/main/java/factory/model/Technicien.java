@@ -27,14 +27,12 @@ public class Technicien extends RessourcesHumaines{
 		super();
 	}
 	
-	
 
 	public Technicien(Long id, int version) {
 		super();
 		this.id = id;
 		this.version = version;
 	}
-
 
 
 	public Long getId() {
