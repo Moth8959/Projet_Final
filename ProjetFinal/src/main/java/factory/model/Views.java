@@ -19,7 +19,8 @@ public class Views {
 	
 
 	public static class ViewModule extends ViewCommon{
-
+		
+	}
 
 	public static class ViewTechnicien extends ViewCommon {
 		
