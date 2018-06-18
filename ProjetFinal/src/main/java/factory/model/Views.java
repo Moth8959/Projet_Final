@@ -17,7 +17,26 @@ public class Views {
 
 	}
 	
+
 	public static class ViewModule extends ViewCommon{
+
+
+	public static class ViewTechnicien extends ViewCommon {
+		
+	}
+	
+
+	public static class ViewGestionnaire extends ViewCommon {
+
+	}
+	
+	public static class ViewGestionnaireWithFormations extends ViewCommon {
+		
+	}
+
+	
+	public static class ViewOrdinateur extends ViewCommon {
+
 		
 	}
 	

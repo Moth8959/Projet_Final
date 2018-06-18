@@ -1,5 +1,7 @@
 package factory.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,40 +20,43 @@ public class Gestionnaire extends RessourcesHumaines {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id; 
-	
-	@Id
-	@OneToMany(mappedBy="formation")
-	private Formation formation;
+
+	@OneToMany(mappedBy="gestionnaire")
+	@JsonView(Views.ViewGestionnaireWithFormations.class)
+	private List <Formation> formations;
 
 	public Gestionnaire() {
 		super();
 	}
 	
 
-	public Gestionnaire(Long id, Formation formation) {
+	public Gestionnaire(Long id, List<Formation> formations) {
 		super();
 		this.id = id;
-		this.formation = formation;
+		this.formations = formations;
 	}
-
 
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Formation getFormation() {
-		return formation;
+
+	public List<Formation> getFormations() {
+		return formations;
 	}
 
-	public void setFormation(Formation formation) {
-		this.formation = formation;
-	} 
-	
+
+	public void setFormations(List<Formation> formations) {
+		this.formations = formations;
+	}
+
+
 	
 	
 
