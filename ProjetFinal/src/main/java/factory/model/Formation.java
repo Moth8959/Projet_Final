@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,19 +16,26 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name = "training")
 // @SecondaryTable(name = "training_lazy")
+<<<<<<< Updated upstream
 @SequenceGenerator(name = "seqFormation", sequenceName = "training_sequence")
+=======
+@SequenceGenerator(name = "seqForamtion", sequenceName = "training_sequence")
+>>>>>>> Stashed changes
 public class Formation {
 
 	@Id
 	@GeneratedValue(generator = "seqFormation")
 	private Long id;
 
-	@JsonView(Views.ViewCommon.class)
+	@OneToMany(mappedBy="formation")
+	@JsonView(Views.ViewFormationWithModules.class)
 	private List<Module> modules = new ArrayList<>();;
 
+	@OneToMany(mappedBy="formation")
 	@JsonView(Views.ViewFormationWithStagiaires.class)
 	private List<Stagiaire> stagiaires = new ArrayList<>();;
 
+	@ManyToOne
 	@JsonView(Views.ViewCommon.class)
 	private Gestionnaire gestionnaire;
 
