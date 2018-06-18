@@ -17,6 +17,10 @@ public class Views {
 
 	}
 	
+	public static class ViewModule extends ViewCommon{
+		
+	}
+	
 	public static class ViewFormationWithStagiaires extends ViewFormation {
 
 	}
@@ -36,4 +40,7 @@ public class Views {
 	public static class ViewStagiaireWithOrdinateurs extends ViewFormation{
 		
 	}
+	
+	
+	
 }

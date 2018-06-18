@@ -6,8 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -19,19 +23,29 @@ public class Module {
 	@GeneratedValue(generator = "seqModule")
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
-//	private Matiere matiere;
+	@ManyToOne
+	private Matiere matiere;
+	@OneToOne
 	@JsonView(Views.ViewCommon.class)
 	private Salle salle;
-//	private Formateur formateur;
+	@OneToOne
+	@JsonView(Views.ViewCommon.class)
+	private Formateur formateur;
+	@Temporal(TemporalType.DATE)
 	@Column(name = "startDate")
 	@JsonView(Views.ViewCommon.class)
 	private Date dateDebut;
+	@Temporal(TemporalType.DATE)
 	@Column(name = "endDate")
 	@JsonView(Views.ViewCommon.class)
 	private Date dateFin;
+	@OneToOne
 	@Column(name = "startDate")
 	@JsonView(Views.ViewCommon.class)
 	private VideoProjecteur videoProjecteur;
+	@ManyToOne
+	@Column(name = "training")
+	private Formation formation;
 	
 	
 /**** CONSTRUCTEURS*/
@@ -39,9 +53,11 @@ public class Module {
 	public Module() {
 		super();
 	}
-	public Module(Salle salle, Date dateDebut, Date dateFin, VideoProjecteur videoProjecteur) {
+	public Module(Matiere matiere, Salle salle, Formateur formateur, Date dateDebut, Date dateFin, VideoProjecteur videoProjecteur) {
 		super();
+		this.matiere = matiere;
 		this.salle = salle;
+		this.formateur = formateur;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.videoProjecteur = videoProjecteur;
@@ -68,6 +84,18 @@ public class Module {
 		this.dateFin = dateFin;
 	}
 	
+	public Matiere getMatiere() {
+		return matiere;
+	}
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+	public Formateur getFormateur() {
+		return formateur;
+	}
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
+	}
 	public Salle getSalle() {
 		return salle;
 	}

@@ -13,10 +13,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "classroom")
 @SequenceGenerator(name = "seqSalle", sequenceName = "salle_sequence")
 public class Salle {
-	@Id
-	@GeneratedValue(generator = "seqSalle")
-	@JsonView(Views.ViewCommon.class)
-	private Long id;
 	@Column(name = "capacity")
 	@JsonView(Views.ViewCommon.class)
 	private Integer capacite;
