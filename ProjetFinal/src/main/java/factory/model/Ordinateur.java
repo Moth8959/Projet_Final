@@ -1,20 +1,30 @@
 package factory.model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-@Entity
-@DiscriminatorValue("Ordinateur")
-public class Ordinateur extends RessourcesMaterielles{
+import factory.model.Views;
 
+@Entity
+@Table(name = "computer")
+public class Ordinateur extends RessourcesMaterielles{
+	
+	@Column(name = "processor", length = 25)
 	@JsonView(Views.ViewCommon.class)
 	private String processeur;
 	@JsonView(Views.ViewCommon.class)
 	private int ram;
+	@Column(name = "hardDriveCapacity")
 	@JsonView(Views.ViewCommon.class)
 	private int capaciteDD;
+	@Column(name = "yearOfPurchase")
 	@JsonView(Views.ViewCommon.class)
 	private int anneeAchat;
 	
