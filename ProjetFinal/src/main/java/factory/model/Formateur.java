@@ -33,15 +33,35 @@ public class Formateur extends RessourcesHumaines {
 	@JoinTable(name = "trainer_subject", joinColumns = @JoinColumn(name = "trainer_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
 	@JsonView(Views.ViewFormateur.class)
 	private List<Matiere> matieres = new ArrayList<>();
-	@OneToOne(mappedBy = "formation")
+	@OneToOne
+	@JoinColumn(name="formateur_id")
 	@JsonView(Views.ViewCommon.class)
 	private Formation formation;
-	@OneToOne(mappedBy = "module")
+	@OneToOne
+	@JoinColumn(name="module_id")
 	@JsonView(Views.ViewCommon.class)
 	private Module module;
 
 	public Formateur() {
 		super();
+	}
+
+	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, Integer codePostal,
+			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
+			String username, String password) {
+		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
+				accesTechnicien, username, password);
+	}
+
+	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, Integer codePostal,
+			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
+			String username, String password, Long id, List<Matiere> matieres, Formation formation, Module module) {
+		this(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
+				accesTechnicien, username, password);
+		this.id = id;
+		this.matieres = matieres;
+		this.formation = formation;
+		this.module = module;
 	}
 
 	
