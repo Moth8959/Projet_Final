@@ -35,19 +35,19 @@ public class Stagiaire {
 	@JsonView(Views.ViewCommon.class)
 	private NivEnum nivEnum;
 	
-	@OneToMany(mappedBy="stagiaire")
-	@JsonView(Views.ViewStagiaireWithOrdinateurs.class)
-	private List<Ordinateur> ordinateurs;
+	@ManyToOne
+	@JsonView(Views.ViewCommon.class)
+	private Ordinateur ordinateur;
 
 	public Stagiaire() {
 		super();
 	}
 
-	public Stagiaire(Formation formation, NivEnum nivEnum, List<Ordinateur> ordinateurs) {
+	public Stagiaire(Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
 		super();
 		this.formation = formation;
 		this.nivEnum = nivEnum;
-		this.ordinateurs = ordinateurs;
+		this.ordinateur = ordinateur;
 	}
 
 	public Formation getFormation() {
@@ -66,12 +66,12 @@ public class Stagiaire {
 		this.nivEnum = nivEnum;
 	}
 
-	public List<Ordinateur> getOrdinateurs() {
-		return ordinateurs;
+	public Ordinateur getOrdinateur() {
+		return ordinateur;
 	}
 
-	public void setOrdinateurs(List<Ordinateur> ordinateurs) {
-		this.ordinateurs = ordinateurs;
+	public void setOrdinateur(Ordinateur ordinateur) {
+		this.ordinateur = ordinateur;
 	}
 	
 	
