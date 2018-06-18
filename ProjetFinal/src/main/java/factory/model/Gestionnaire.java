@@ -26,6 +26,15 @@ public class Gestionnaire extends RessourcesHumaines {
 	public Gestionnaire() {
 		super();
 	}
+	
+
+	public Gestionnaire(Long id, Formation formation) {
+		super();
+		this.id = id;
+		this.formation = formation;
+	}
+
+
 
 	public Long getId() {
 		return id;

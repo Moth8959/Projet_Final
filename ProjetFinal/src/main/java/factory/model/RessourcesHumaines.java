@@ -53,7 +53,28 @@ public abstract class RessourcesHumaines {
 		super();
 	}
 	
-	
+
+	public RessourcesHumaines(String nom, String prenom, String coordonnées, String rue, String ville,
+			Integer codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
+			Boolean accesTechnicien, String username, String password) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.coordonnées = coordonnées;
+		this.rue = rue;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.accesAdministrateur = accesAdministrateur;
+		this.accesFormateur = accesFormateur;
+		this.accesStagiaire = accesStagiaire;
+		this.accesTechnicien = accesTechnicien;
+		this.username = username;
+		this.password = password;
+	}
+
+
+
+
 	public String getNom() {
 		return nom;
 	}
