@@ -52,7 +52,7 @@ public class Matiere {
 	private Matiere prerequis;
 	@ManyToMany(mappedBy = "matieres")
 	@JsonView(Views.ViewMatiere.class)
-	private Formateur formateur;
+	private List<Formateur> formateurs = new ArrayList<>();
 	@OneToMany(mappedBy = "matiere")
 	@JsonView(Views.ViewMatiereWithModules.class)
 	private List<Module> modules = new ArrayList<>();
