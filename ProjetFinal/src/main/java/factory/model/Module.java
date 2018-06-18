@@ -47,7 +47,7 @@ public class Module {
 		@JsonView(Views.ViewCommon.class)
 	private VideoProjecteur videoProjecteur;
 		@ManyToOne
-		@Column(name = "training")
+		@JoinColumn(name = "training_id")
 		@JsonView(Views.ViewCommon.class)
 	private Formation formation;
 	
