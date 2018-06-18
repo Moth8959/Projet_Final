@@ -4,6 +4,7 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -11,17 +12,15 @@
 
 </head>
 <body>
+
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#">The Factory</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">jftggfjjg</span>
-    </button>
+  <nav class="navbar  sticky-top navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#">La Factory <br/> <em><small>l'usine à talent</small></em></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
         </li>
 
 
@@ -42,10 +41,11 @@
             Gestion des ressources humaines
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Stagiaires</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Formateurs</a>
+            <a class="dropdown-item" href="#">Techniciens</a>
+            <a class="dropdown-item" href="#">Gestionnaires</a>
           </div>
         </li>
 
@@ -54,15 +54,16 @@
             Gestion du matériel
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="/salles">Salles</a>
+            <a class="dropdown-item" href="/ordinateurs">Ordinateurs</a>
+            <a class="dropdown-item" href="/videoprojecteurs">Vidéoprojecteurs</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Prévisions des stocks</a>
           </div>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link pull-right" href="#">Contact</a>
+        <li class="nav-item ml-5 pl-5">
+          <a class="nav-link pull-right" href="/contact">Contact</a>
         </li>
 
 
@@ -77,36 +78,11 @@
     </div>
   </nav>
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    </tbody>
-  </table>
+
+
+  <router-outlet></router-outlet>
+
+
 
 
 
