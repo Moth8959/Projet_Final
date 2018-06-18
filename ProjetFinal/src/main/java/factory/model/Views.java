@@ -17,8 +17,6 @@ public class Views {
 
 	}
 	
-<<<<<<< Updated upstream
-	
 	public static class ViewGestionnaire extends ViewCommon {
 
 	}
@@ -33,12 +31,10 @@ public class Views {
 	}
 	
 	
-=======
 	public static class ViewStagiaire extends ViewCommon {
 
 	}
 	
->>>>>>> Stashed changes
 	public static class ViewFormationWithStagiaires extends ViewFormation {
 
 	}
