@@ -9,21 +9,29 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "module")
 @SequenceGenerator(name = "seqModule", sequenceName = "module_sequence")
 public class Module {
 	@Id
 	@GeneratedValue(generator = "seqModule")
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 //	private Matiere matiere;
-//	private Salle salle;
+	@JsonView(Views.ViewCommon.class)
+	private Salle salle;
 //	private Formateur formateur;
 	@Column(name = "startDate")
+	@JsonView(Views.ViewCommon.class)
 	private Date dateDebut;
 	@Column(name = "endDate")
+	@JsonView(Views.ViewCommon.class)
 	private Date dateFin;
-//	private VideoProjecteur videoProjecteur;
+	@Column(name = "startDate")
+	@JsonView(Views.ViewCommon.class)
+	private VideoProjecteur videoProjecteur;
 	
 	
 /**** CONSTRUCTEURS*/
@@ -31,10 +39,12 @@ public class Module {
 	public Module() {
 		super();
 	}
-	public Module(Date dateDebut, Date dateFin) {
+	public Module(Salle salle, Date dateDebut, Date dateFin, VideoProjecteur videoProjecteur) {
 		super();
+		this.salle = salle;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+		this.videoProjecteur = videoProjecteur;
 	}
 
 /**** METHODES*/	
@@ -57,11 +67,24 @@ public class Module {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	@Override
-	public String toString() {
-		return "Module [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + "]";
+	
+	public Salle getSalle() {
+		return salle;
+	}
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+	public VideoProjecteur getVideoProjecteur() {
+		return videoProjecteur;
+	}
+	public void setVideoProjecteur(VideoProjecteur videoProjecteur) {
+		this.videoProjecteur = videoProjecteur;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Module [id=" + id + ", salle=" + salle + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
+				+ ", videoProjecteur=" + videoProjecteur + "]";
+	}
 
 }

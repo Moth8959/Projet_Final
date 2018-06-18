@@ -21,8 +21,8 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import formation.model.Formation;
-import formation.model.Views;
+import factory.model.Formation;
+import factory.model.Views;
 
 @Entity
 @Table(name = "subject")
