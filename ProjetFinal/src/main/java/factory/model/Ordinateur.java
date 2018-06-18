@@ -37,8 +37,8 @@ public class Ordinateur extends RessourcesMaterielles{
 	}
 	
 	
-	public Ordinateur(int version, String code, Double coutUtilisation, String processeur, int ram, int capaciteDD, int anneeAchat) {
-		super(version, code, coutUtilisation);
+	public Ordinateur(String code, Double coutUtilisation, String processeur, int ram, int capaciteDD, int anneeAchat) {
+		super(code, coutUtilisation);
 		this.processeur = processeur;
 		this.ram = ram;
 		this.capaciteDD = capaciteDD;

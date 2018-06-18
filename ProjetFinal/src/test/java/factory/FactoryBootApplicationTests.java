@@ -25,7 +25,7 @@ public class FactoryBootApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		Module module = new Module(new Salle(15), new Date(), new Date());
+		Module module = new Module(new Salle("gcffy", 10.2d,4), new Date(), new Date());
 		moduleDao.save(module);
 		
 		

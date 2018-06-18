@@ -28,10 +28,12 @@ public class Module {
 		@JoinColumn(name = "subject_id")
 		@JsonView(Views.ViewCommon.class)
 	private Matiere matiere;
-		@OneToOne
+		@ManyToOne
+		@JoinColumn(name = "classroom_id")
 		@JsonView(Views.ViewCommon.class)
 	private Salle salle;
-		@OneToOne(mappedBy="module")
+		@OneToOne
+		@JoinColumn(name = "trainer_id")
 		@JsonView(Views.ViewCommon.class)
 	private Formateur formateur;
 		@Temporal(TemporalType.DATE)

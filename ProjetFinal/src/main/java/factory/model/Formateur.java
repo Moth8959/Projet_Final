@@ -23,13 +23,14 @@ public class Formateur extends RessourcesHumaines {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@ManyToMany
-	@JoinTable(name = "trainer_subject", joinColumns = @JoinColumn(name = "trainer_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
+	@JoinTable(name = "trainer_subject", joinColumns = {@JoinColumn(name = "trainer_id")}, inverseJoinColumns = { @JoinColumn(name = "subject_id")})
 	@JsonView(Views.ViewFormateur.class)
 	private List<Matiere> matieres = new ArrayList<>();
-	@OneToOne(mappedBy = "formation")
+	@OneToOne
 	@JsonView(Views.ViewCommon.class)
+	@JoinColumn(name = "training_id")
 	private Formation formation;
-	@OneToOne(mappedBy = "module")
+	@OneToOne(mappedBy = "formateur")
 	@JsonView(Views.ViewCommon.class)
 	private Module module;
 

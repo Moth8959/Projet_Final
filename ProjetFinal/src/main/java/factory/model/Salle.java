@@ -1,25 +1,32 @@
 package factory.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-
-public class Salle {
+@Table(name = "classroom")
+public class Salle extends RessourcesMaterielles{
 		@Column(name = "capacity")
 		@JsonView(Views.ViewCommon.class)
 	private Integer capacite;
 	
+		@OneToMany(mappedBy="salle")
+		@JsonView(Views.ViewCommon.class)
+		private List<Module> modules;
 	
 /**** CONSTRUCTEURS*/
 	
 	public Salle() {
 		super();
 	}
-	public Salle(Integer capacite) {
-		super();
+	public Salle(String code, Double coutUtilisation, Integer capacite) {
+		super(code, coutUtilisation);
 		this.capacite = capacite;
 	}
 

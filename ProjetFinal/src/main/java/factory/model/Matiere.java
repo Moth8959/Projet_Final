@@ -34,22 +34,22 @@ public class Matiere {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	@Column(name = "titer", length = 100)
+	@Column(name = "title", length = 100)
 	@JsonView(Views.ViewCommon.class)
 	private String titre;
 	@Enumerated(EnumType.STRING)
-	@Column(name = "level", length = 100)
+	@Column(name = "level", length = 30)
 	@JsonView(Views.ViewCommon.class)
 	private NivEnum niveau;
-	@Column(name = "aim", length = 1000)
+	@Column(name = "aim", length = 40)
 	@JsonView(Views.ViewCommon.class)
 	private String objectif;
-	@Column(name = "contents", length = 2000)
+	@Column(name = "contents", length = 40)
 	@JsonView(Views.ViewCommon.class)
 	private String contenu;
-	@Column(name = "prerequisites", length = 200)
-	@JsonView(Views.ViewCommon.class)
-	private Matiere prerequis;
+//	@Column(name = "prerequisites")
+//	@JsonView(Views.ViewCommon.class)
+//	private Matiere prerequis;
 	@ManyToMany(mappedBy = "matieres")
 	@JsonView(Views.ViewMatiere.class)
 	private List<Formateur> formateurs = new ArrayList<>();
@@ -57,16 +57,26 @@ public class Matiere {
 	@JsonView(Views.ViewMatiereWithModules.class)
 	private List<Module> modules = new ArrayList<>();
 	
-	
-	public Matiere(int version, String titre, NivEnum niveau, String objectif, String contenu, Matiere prerequis) {
+	public Matiere() {
 		super();
-		this.version = version;
+	}
+	
+	public Matiere(String titre, NivEnum niveau, String objectif, String contenu) {
+		super();
 		this.titre = titre;
 		this.niveau = niveau;
 		this.objectif = objectif;
 		this.contenu = contenu;
-		this.prerequis = prerequis;
 	}
+	
+//	public Matiere(String titre, NivEnum niveau, String objectif, String contenu, Matiere prerequis) {
+//		super();
+//		this.titre = titre;
+//		this.niveau = niveau;
+//		this.objectif = objectif;
+//		this.contenu = contenu;
+//		this.prerequis = prerequis;
+//	}
 
 	public int getVersion() {
 		return version;
@@ -108,13 +118,13 @@ public class Matiere {
 		this.contenu = contenu;
 	}
 
-	public Matiere getPrerequis() {
-		return prerequis;
-	}
-
-	public void setPrerequis(Matiere prerequis) {
-		this.prerequis = prerequis;
-	}
+//	public Matiere getPrerequis() {
+//		return prerequis;
+//	}
+//
+//	public void setPrerequis(Matiere prerequis) {
+//		this.prerequis = prerequis;
+//	}
 
 
 

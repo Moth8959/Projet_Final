@@ -26,9 +26,8 @@ public abstract class RessourcesMaterielles {
 		super();
 	}
 	
-	public RessourcesMaterielles(int version, String code, Double coutUtilisation) {
+	public RessourcesMaterielles(String code, Double coutUtilisation) {
 		super();
-		this.version = version;
 		this.code = code;
 		this.coutUtilisation = coutUtilisation;
 	}

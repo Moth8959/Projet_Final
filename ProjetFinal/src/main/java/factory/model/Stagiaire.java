@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -28,6 +29,7 @@ public class Stagiaire {
 	
 	@ManyToOne
 	@JsonView(Views.ViewCommon.class)
+	@JoinColumn(name = "training_id")
 	private Formation formation;
 	
 	@Enumerated(EnumType.STRING)
@@ -35,19 +37,20 @@ public class Stagiaire {
 	@JsonView(Views.ViewCommon.class)
 	private NivEnum nivEnum;
 	
-	@OneToMany(mappedBy="stagiaire")
+	@ManyToOne
+	@JoinColumn(name = "computer_id")
 	@JsonView(Views.ViewStagiaireWithOrdinateurs.class)
-	private List<Ordinateur> ordinateurs;
+	private Ordinateur ordinateur;
 
 	public Stagiaire() {
 		super();
 	}
 
-	public Stagiaire(Formation formation, NivEnum nivEnum, List<Ordinateur> ordinateurs) {
+	public Stagiaire(Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
 		super();
 		this.formation = formation;
 		this.nivEnum = nivEnum;
-		this.ordinateurs = ordinateurs;
+		this.ordinateur = ordinateur;
 	}
 
 	public Formation getFormation() {
@@ -66,12 +69,12 @@ public class Stagiaire {
 		this.nivEnum = nivEnum;
 	}
 
-	public List<Ordinateur> getOrdinateurs() {
-		return ordinateurs;
+	public Ordinateur getOrdinateur() {
+		return ordinateur;
 	}
 
-	public void setOrdinateurs(List<Ordinateur> ordinateurs) {
-		this.ordinateurs = ordinateurs;
+	public void setOrdinateur(Ordinateur ordinateur) {
+		this.ordinateur = ordinateur;
 	}
 	
 	

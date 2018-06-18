@@ -38,6 +38,10 @@ public class Views {
 		
 	}
 	
+	public static class ViewSalle extends ViewCommon {
+		
+	}
+	
 	public static class ViewGestionnaireWithFormations extends ViewGestionnaire {
 		
 	}

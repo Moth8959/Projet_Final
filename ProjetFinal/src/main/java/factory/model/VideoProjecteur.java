@@ -29,8 +29,8 @@ public class VideoProjecteur extends RessourcesMaterielles{
 		super();
 	}
 	
-	public VideoProjecteur(int version, String code, Double coutUtilisation, Integer resolution, Boolean hdmi, Boolean vga, List<Module> modules) {
-		super(version, code, coutUtilisation);
+	public VideoProjecteur(String code, Double coutUtilisation, Integer resolution, Boolean hdmi, Boolean vga, List<Module> modules) {
+		super(code, coutUtilisation);
 		this.resolution = resolution;
 		this.hdmi = hdmi;
 		this.vga = vga;

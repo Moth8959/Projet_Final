@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -34,6 +35,7 @@ public class Formation {
 	private List<Stagiaire> stagiaires = new ArrayList<>();;
 
 	@ManyToOne
+	@JoinColumn(name = "manager_id")
 	@JsonView(Views.ViewCommon.class)
 	private Gestionnaire gestionnaire;
 
