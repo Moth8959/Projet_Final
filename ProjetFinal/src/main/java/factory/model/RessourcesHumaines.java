@@ -4,11 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class RessourcesHumaines {
     
 	@JsonView(Views.ViewCommon.class)
@@ -47,11 +47,13 @@ public abstract class RessourcesHumaines {
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="password", length=100)
 	private String password;
+
+
+	public RessourcesHumaines() {
+		super();
+	}
 	
 	
-
-
-
 	public String getNom() {
 		return nom;
 	}

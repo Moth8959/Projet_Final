@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name = "training")
 // @SecondaryTable(name = "training_lazy")
-@SequenceGenerator(name = "seqFormtion", sequenceName = "training_sequence")
+@SequenceGenerator(name = "seqFormation", sequenceName = "training_sequence")
 public class Formation {
 
 	@Id
