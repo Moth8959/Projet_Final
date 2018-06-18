@@ -1,6 +1,7 @@
 package factory.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,23 +33,23 @@ public class FormateurRestController {
 	@ResponseBody
 	@JsonView(Views.ViewFormateur.class)
 	public List<Formateur> list() {
-		return formateurDao.findAllWithEleves();
+		return formateurDao.findAll();
 	}
 	
-	@GetMapping("/{id}/withFormations")
-	@ResponseBody
-	@JsonView(Views.ViewFormateurWithFormations.class)
-	public Formateur findWithFormations(@PathVariable Long id) {
-		return formateurDao.findByIdWithFormations(id);
-	}
+//	@GetMapping("/{id}/withFormations")
+//	@ResponseBody
+//	@JsonView(Views.ViewFormateurWithFormations.class)
+//	public Formateur findWithFormations(@PathVariable Long id) {
+//		return formateurDao.findByIdWithFormations(id);
+//	}
 	
 	@GetMapping("/{id}")
 	@ResponseBody
 	@JsonView(Views.ViewFormateur.class)
 	public Formateur find(@PathVariable Long id) {
-		Formateur formateur = formateurDao.findByIdWithEleves(id);
+		Optional<Formateur> formateur = formateurDao.findById(id);
 		if(formateur != null) {
-			return formateur;
+			return formateurDao.findById(id).get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "");
 		}
