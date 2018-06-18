@@ -8,9 +8,20 @@ public class Views {
 	public static class ViewFormation extends ViewCommon {
 
 	}
+	
+	public static class ViewFormateur extends ViewCommon {
 
+	}
+	
+	public static class ViewMatiere extends ViewCommon {
+
+	}
 	
 	public static class ViewFormationWithStagiaires extends ViewFormation {
+
+	}
+	
+	public static class ViewMatiereWithModules extends ViewFormation {
 
 	}
 
