@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -19,32 +20,35 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "module")
 @SequenceGenerator(name = "seqModule", sequenceName = "module_sequence")
 public class Module {
-	@Id
-	@GeneratedValue(generator = "seqModule")
-	@JsonView(Views.ViewCommon.class)
+		@Id
+		@GeneratedValue(generator = "seqModule")
+		@JsonView(Views.ViewCommon.class)
 	private Long id;
-	@ManyToOne
+		@ManyToOne
+		@JoinColumn(name = "subject_id")
+		@JsonView(Views.ViewCommon.class)
 	private Matiere matiere;
-	@OneToOne
-	@JsonView(Views.ViewCommon.class)
+		@OneToOne
+		@JsonView(Views.ViewCommon.class)
 	private Salle salle;
-	@OneToOne
-	@JsonView(Views.ViewCommon.class)
+		@OneToOne(mappedBy="module")
+		@JsonView(Views.ViewCommon.class)
 	private Formateur formateur;
-	@Temporal(TemporalType.DATE)
-	@Column(name = "startDate")
-	@JsonView(Views.ViewCommon.class)
+		@Temporal(TemporalType.DATE)
+		@Column(name = "startDate")
+		@JsonView(Views.ViewCommon.class)
 	private Date dateDebut;
-	@Temporal(TemporalType.DATE)
-	@Column(name = "endDate")
-	@JsonView(Views.ViewCommon.class)
+		@Temporal(TemporalType.DATE)
+		@Column(name = "endDate")
+		@JsonView(Views.ViewCommon.class)
 	private Date dateFin;
-	@OneToOne
-	@Column(name = "startDate")
-	@JsonView(Views.ViewCommon.class)
+		@ManyToOne
+		@JoinColumn(name = "projector_id")
+		@JsonView(Views.ViewCommon.class)
 	private VideoProjecteur videoProjecteur;
-	@ManyToOne
-	@Column(name = "training")
+		@ManyToOne
+		@Column(name = "training")
+		@JsonView(Views.ViewCommon.class)
 	private Formation formation;
 	
 	
@@ -53,13 +57,17 @@ public class Module {
 	public Module() {
 		super();
 	}
-	public Module(Matiere matiere, Salle salle, Formateur formateur, Date dateDebut, Date dateFin, VideoProjecteur videoProjecteur) {
+	public Module(Salle salle, Date dateDebut, Date dateFin) {
 		super();
-		this.matiere = matiere;
 		this.salle = salle;
-		this.formateur = formateur;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+	}
+	
+	public Module(Matiere matiere, Salle salle, Formateur formateur, Date dateDebut, Date dateFin, VideoProjecteur videoProjecteur) {
+		this(salle, dateDebut, dateFin);
+		this.matiere = matiere;
+		this.formateur = formateur;
 		this.videoProjecteur = videoProjecteur;
 	}
 
