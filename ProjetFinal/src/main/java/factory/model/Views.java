@@ -31,7 +31,7 @@ public class Views {
 
 	}
 	
-	public static class ViewGestionnaireWithFormations extends ViewCommon {
+	public static class ViewGestionnaireWithFormations extends ViewGestionnaire {
 		
 	}
 
@@ -45,11 +45,12 @@ public class Views {
 
 	}
 	
-	public static class ViewFormateurWithFormations extends ViewFormation {
+	
+	public static class ViewFormateurWithFormations extends ViewFormateur {
 
 	}
 	
-	public static class ViewMatiereWithModules extends ViewFormation {
+	public static class ViewMatiereWithModules extends ViewMatiere {
 
 	}
 
@@ -57,7 +58,11 @@ public class Views {
 		
 	}
 	
-	public static class ViewStagiaireWithOrdinateurs extends ViewFormation{
+	public static class ViewStagiaire extends ViewCommon {
+		
+	}
+	
+	public static class ViewStagiaireWithOrdinateurs extends ViewStagiaire {
 		
 	}
 	
