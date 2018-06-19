@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormateurRestService} from '../services/formateur.rest.service';
 import {Formateur} from '../model/formateur';
 
-
 @Component({
   selector: 'app-formateur',
   templateUrl: './formateur.component.html',
