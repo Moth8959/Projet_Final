@@ -1,0 +1,22 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Compétences</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let m of formateurs">
+    <td>{{m.id}}</td>
+    <td>{{m.nom}}</td>
+    <td>{{m.prenom}}</td>
+    <p>
+      <a href="#">
+        <span class="glyphicon glyphicon-book"></span>
+      </a>
+    </p>
+  </tr>
+  </tbody>
+</table>
