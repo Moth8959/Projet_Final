@@ -36,12 +36,13 @@ public class FormateurRestController {
 		return formateurDao.findAll();
 	}
 	
-//	@GetMapping("/{id}/withFormations")
-//	@ResponseBody
-//	@JsonView(Views.ViewFormateurWithFormations.class)
-//	public Formateur findWithFormations(@PathVariable Long id) {
-//		return formateurDao.findByIdWithFormations(id);
-//	}
+	@GetMapping("formation/{id}")
+	@ResponseBody
+	@JsonView(Views.ViewFormateurWithFormations.class)
+	public Formateur findWithFormations(@PathVariable Long id) {
+		return formateurDao.findByIdWithFormations(id);
+	}
+	
 	
 	@GetMapping("/{id}")
 	@ResponseBody
@@ -54,6 +55,7 @@ public class FormateurRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "");
 		}
 	}
+	
 	
 	@PostMapping("")
 	@JsonView(Views.ViewFormateur.class)

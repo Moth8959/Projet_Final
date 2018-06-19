@@ -1,13 +1,21 @@
 package factory.model;
 
 import javax.persistence.Column;
+
+
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @MappedSuperclass
 public abstract class RessourcesHumaines {
-    
+	
+   
+   
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="lastname", length=100)
 	private String nom;

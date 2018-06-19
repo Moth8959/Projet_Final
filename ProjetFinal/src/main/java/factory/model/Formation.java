@@ -36,7 +36,7 @@ public class Formation {
 
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewFormationWithGestionnaire.class)
 	private Gestionnaire gestionnaire;
 
 	/**** CONSTRUCTEURS*/
