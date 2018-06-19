@@ -42,10 +42,10 @@ public class Views {
 
 	}
 
-	public static class ViewSalleWithModule extends ViewCommon {
+	public static class ViewSalleWithModule extends ViewSalle {
 
 	}
-
+	
 	public static class ViewGestionnaireWithFormations extends ViewGestionnaire {
 
 	}
