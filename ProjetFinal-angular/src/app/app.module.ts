@@ -20,6 +20,8 @@ import { TechnicienComponent } from './technicien/technicien.component';
 import {StagiaireRestService} from './services/stagiaire.rest.service';
 import {TechnicienRestService} from './services/technicien.rest.service';
 import {GestionnaireRestService} from './services/gestionnaire.rest.service';
+import { LoginComponent } from './login/login.component';
+import {routesLogin} from './login/routeLogin';
 
 
 
@@ -39,6 +41,7 @@ const routes: Routes = [
     StagiaireComponent,
     GestionnaireComponent,
     TechnicienComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ const routes: Routes = [
     RouterModule.forRoot(routesGestionnaire),
     RouterModule.forRoot(routesStagiaire),
     RouterModule.forRoot(routesTechnicien),
+    RouterModule.forRoot(routesLogin),
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService],
