@@ -22,6 +22,7 @@ import {TechnicienRestService} from './services/technicien.rest.service';
 import {GestionnaireRestService} from './services/gestionnaire.rest.service';
 import { LoginComponent } from './login/login.component';
 import {routesLogin} from './login/routeLogin';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes = [
     GestionnaireComponent,
     TechnicienComponent,
     LoginComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
