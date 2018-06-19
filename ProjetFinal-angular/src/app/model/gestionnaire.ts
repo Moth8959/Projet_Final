@@ -1,5 +1,5 @@
 export class Gestionnaire {
-  constructor(private _id: number, private _nom: string, private _prenom: string) {
+  constructor(private _id: number, private _nom: string, private _prenom: string, private _username: string, private _password: string) {
 
   }
 
@@ -26,5 +26,21 @@ export class Gestionnaire {
 
   set prenom(value: string) {
     this._prenom = value;
+  }
+
+  get username(): string {
+    return this._username;
+  }
+
+  set username(value: string) {
+    this._username = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
   }
 }

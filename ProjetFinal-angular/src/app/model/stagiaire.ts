@@ -1,5 +1,5 @@
 export class Stagiaire {
-  constructor(private _id: number, private _nom: string, private _prenom: string, private _niveau: string) {
+  constructor(private _id: number, private _nom: string, private _prenom: string, private _niveau: string, private _username: string, private _password: string) {
 
   }
 
@@ -34,5 +34,21 @@ export class Stagiaire {
 
   set niveau(value: string) {
     this._niveau = value;
+  }
+
+  get username(): string {
+    return this._username;
+  }
+
+  set username(value: string) {
+    this._username = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
   }
 }
