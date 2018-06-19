@@ -18,5 +18,4 @@ public interface StagiaireDao extends JpaRepository<Stagiaire, Long> {
     List<Stagiaire> findAllWithOrdinateurs();
 	
 	
-
 }
