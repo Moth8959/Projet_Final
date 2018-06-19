@@ -10,8 +10,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +19,6 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import factory.model.Formation;
 import factory.model.Views;
 
 @Entity
@@ -57,6 +54,8 @@ public class Matiere {
 	@JsonView(Views.ViewMatiereWithModules.class)
 	private List<Module> modules = new ArrayList<>();
 	
+	/**** CONSTRUCTEURS*/
+	
 	public Matiere() {
 		super();
 	}
@@ -78,6 +77,8 @@ public class Matiere {
 //		this.prerequis = prerequis;
 //	}
 
+	/**** METHODES*/	
+	
 	public int getVersion() {
 		return version;
 	}

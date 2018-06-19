@@ -24,7 +24,7 @@ import factory.model.Matiere;
 import factory.model.Views;
 
 @RestController
-@RequestMapping("/rest/matiere")
+@RequestMapping("/matiere")
 @CrossOrigin(origins="*")
 public class MatiereRestController {
 	

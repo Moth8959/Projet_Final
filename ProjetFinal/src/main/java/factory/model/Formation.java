@@ -39,6 +39,8 @@ public class Formation {
 	@JsonView(Views.ViewCommon.class)
 	private Gestionnaire gestionnaire;
 
+	/**** CONSTRUCTEURS*/
+	
 	public Formation() {
 		super();
 	}
@@ -49,6 +51,8 @@ public class Formation {
 		this.stagiaires = stagiaires;
 		this.gestionnaire = gestionnaire;
 	}
+	
+	/**** METHODES*/	
 
 	public Long getId() {
 		return id;

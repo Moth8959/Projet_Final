@@ -32,10 +32,11 @@ public class Ordinateur extends RessourcesMaterielles{
 	private List<Stagiaire> stagiaires = new ArrayList<>();
 	
 	
+	/**** CONSTRUCTEURS*/
+	
 	public Ordinateur() {
 		super();
 	}
-	
 	
 	public Ordinateur(String code, Double coutUtilisation, String processeur, int ram, int capaciteDD, int anneeAchat) {
 		super(code, coutUtilisation);
@@ -44,6 +45,8 @@ public class Ordinateur extends RessourcesMaterielles{
 		this.capaciteDD = capaciteDD;
 		this.anneeAchat = anneeAchat;
 	}
+	
+	/**** METHODES*/	
 	
 	public String getProcesseur() {
 		return processeur;

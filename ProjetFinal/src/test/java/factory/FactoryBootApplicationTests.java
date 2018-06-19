@@ -8,21 +8,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import factory.dao.ModuleDao;
-import factory.dao.SalleDao;
-import factory.dao.VideoProjecteurDao;
-import factory.model.Module;
-import factory.model.Salle;
-import factory.model.VideoProjecteur;
+
+
+import factory.dao.*;
+import factory.model.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class FactoryBootApplicationTests {
 	
 	@Autowired
+	private FormateurDao formateurDao;
+	@Autowired
+	private FormationDao formationDao;
+	@Autowired
+	private GestionnaireDao gestionnaireDao;
+	@Autowired
+	private MatiereDao matiereDao;
+	@Autowired
 	private ModuleDao moduleDao;
 	@Autowired
+	private OrdinateurDao ordinateurDao;
+	@Autowired
 	private SalleDao salleDao;
+	@Autowired
+	private StagiaireDao stagiaireDao;
+	@Autowired
+	private TechnicienDao technicienDao;
+	@Autowired
+	private VideoProjecteurDao videoProjecteurDao;
 	
 
 
@@ -39,6 +53,7 @@ public class FactoryBootApplicationTests {
 		
 		
 		Module module = new Module(salle1, new Date(), new Date());
+		Technicien technicien = new Technicien("Terieur", "Alain", "alain.terieur@ajc.fr", "6 rue Rougemont", "Paris", "75008");
 		moduleDao.save(module);
 		
 		

@@ -23,7 +23,7 @@ import factory.model.Formateur;
 import factory.model.Views;
 
 @RestController
-@RequestMapping("/rest/formateur")
+@RequestMapping("/formateur")
 public class FormateurRestController {
 	
 	@Autowired

@@ -24,6 +24,7 @@ public class VideoProjecteur extends RessourcesMaterielles{
 	@OneToMany(mappedBy="videoProjecteur")
 	private List<Module> modules = new ArrayList<>();
 	
+	/**** CONSTRUCTEURS*/
 	
 	public VideoProjecteur() {
 		super();
@@ -36,6 +37,8 @@ public class VideoProjecteur extends RessourcesMaterielles{
 		this.vga = vga;
 		this.modules = modules;
 	}
+	
+	/**** METHODES*/	
 	
 	public Integer getResolution() {
 		return resolution;

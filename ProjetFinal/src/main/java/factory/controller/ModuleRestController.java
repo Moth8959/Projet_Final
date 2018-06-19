@@ -23,7 +23,7 @@ import factory.model.Module;
 import factory.model.Views;
 
 @RestController
-@RequestMapping("/rest/module")
+@RequestMapping("/module")
 public class ModuleRestController {
 	
 	@Autowired

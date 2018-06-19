@@ -25,7 +25,8 @@ import factory.model.Views;
 
 
 @RestController
-@RequestMapping ("/rest/technicien")
+@RequestMapping ("/technicien")
+//@RequestMapping ("/rest/technicien")
 @CrossOrigin(origins="*")
 public class TechnicienRestController {
 	

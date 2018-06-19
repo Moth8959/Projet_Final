@@ -24,7 +24,7 @@ import factory.model.Formation;
 import factory.model.Views;
 
 @RestController
-@RequestMapping("/rest/formation")
+@RequestMapping("/formation")
 //@CrossOrigin(origins="http://localhost:4200") //on peut avoir des soucis au niveau de POSTMAN avec cette URL
 @CrossOrigin(origins="*")
 public class FormationRestController {

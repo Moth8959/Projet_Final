@@ -1,9 +1,6 @@
 package factory.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -28,7 +25,7 @@ public abstract class RessourcesHumaines {
 	private String ville;
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="zip_code", length=100)
-	private Integer codePostal;
+	private String codePostal;
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="admnistrator_access", length=100)
 	private Boolean accesAdministrateur;
@@ -48,14 +45,15 @@ public abstract class RessourcesHumaines {
 	@Column(name="password", length=100)
 	private String password;
 
+	
+	/**** CONSTRUCTEURS*/
 
 	public RessourcesHumaines() {
 		super();
 	}
-	
 
 	public RessourcesHumaines(String nom, String prenom, String coordonnées, String rue, String ville,
-			Integer codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
+			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
 			Boolean accesTechnicien, String username, String password) {
 		super();
 		this.nom = nom;
@@ -72,9 +70,23 @@ public abstract class RessourcesHumaines {
 		this.password = password;
 	}
 
+	public RessourcesHumaines(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.coordonnées = coordonnées;
+		this.rue = rue;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.accesAdministrateur = false;
+		this.accesFormateur = false;
+		this.accesStagiaire = false;
+		this.accesTechnicien = false;
+	}
 
-
-
+	/**** METHODES*/	
+	
 	public String getNom() {
 		return nom;
 	}
@@ -105,10 +117,10 @@ public abstract class RessourcesHumaines {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public Integer getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(Integer codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	public Boolean getAccesAdministrateur() {

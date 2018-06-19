@@ -34,13 +34,14 @@ public class Formateur extends RessourcesHumaines {
 	@JsonView(Views.ViewCommon.class)
 	private Module module;
 
+	
+	/**** CONSTRUCTEURS*/
+	
 	public Formateur() {
 		super();
 	}
 
-	
-	
-	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, Integer codePostal,
+	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, String codePostal,
 			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
 			String username, String password) {
 		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
@@ -49,18 +50,17 @@ public class Formateur extends RessourcesHumaines {
 
 	
 
-	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, Integer codePostal,
+	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, String codePostal,
 			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
-			String username, String password, Long id, List<Matiere> matieres, Formation formation, Module module) {
+			String username, String password, List<Matiere> matieres, Formation formation, Module module) {
 		this(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
 				accesTechnicien, username, password);
-		this.id = id;
 		this.matieres = matieres;
 		this.formation = formation;
 		this.module = module;
 	}
 
-
+	/**** METHODES*/	
 
 	public Long getId() {
 		return id;

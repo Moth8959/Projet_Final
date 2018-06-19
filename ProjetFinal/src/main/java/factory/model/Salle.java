@@ -17,7 +17,7 @@ public class Salle extends RessourcesMaterielles{
 	private Integer capacite;
 	
 		@OneToMany(mappedBy="salle")
-		@JsonView(Views.ViewCommon.class)
+		@JsonView(Views.ViewSalleWithModule.class)
 		private List<Module> modules;
 	
 /**** CONSTRUCTEURS*/

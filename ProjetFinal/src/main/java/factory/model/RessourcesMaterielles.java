@@ -22,6 +22,9 @@ public abstract class RessourcesMaterielles {
 	@JsonView(Views.ViewCommon.class)
 	private Double coutUtilisation;
 	
+	
+	/**** CONSTRUCTEURS*/
+	
 	public RessourcesMaterielles() {
 		super();
 	}
@@ -31,6 +34,8 @@ public abstract class RessourcesMaterielles {
 		this.code = code;
 		this.coutUtilisation = coutUtilisation;
 	}
+	
+	/**** METHODES*/	
 	
 	public int getVersion() {
 		return version;

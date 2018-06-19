@@ -23,20 +23,28 @@ public class Technicien extends RessourcesHumaines{
 	@JsonView(Views.ViewCommon.class)
 	private int version;
 
+	
+	/**** CONSTRUCTEURS*/
+	
 	public Technicien() {
 		super();
 	}
-	
-	
 
-	public Technicien(Long id, int version) {
-		super();
-		this.id = id;
-		this.version = version;
+	public Technicien(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
+			Boolean accesTechnicien, String username, String password) {
+		
+		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+				accesStagiaire, accesTechnicien, username, password);
 	}
 
+	public Technicien(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal) {
+		super(nom, prenom, coordonnées, rue, ville, codePostal);
+	}
 
-
+	/**** METHODES*/	
+	
 	public Long getId() {
 		return id;
 	}

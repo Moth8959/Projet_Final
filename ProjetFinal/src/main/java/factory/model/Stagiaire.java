@@ -1,7 +1,5 @@
 package factory.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "trainee")
 // @SecondaryTable(name = "trainee_lazy")
 @SequenceGenerator(name = "seqStagiaire", sequenceName = "trainee_sequence")
-public class Stagiaire {
+public class Stagiaire extends RessourcesHumaines{
 
 	
 	@Id
@@ -42,17 +39,39 @@ public class Stagiaire {
 	@JsonView(Views.ViewStagiaireWithOrdinateurs.class)
 	private Ordinateur ordinateur;
 
+	
+	/**** CONSTRUCTEURS*/
+	
 	public Stagiaire() {
 		super();
 	}
 
-	public Stagiaire(Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
-		super();
+	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
+			Boolean accesTechnicien, String username, String password, Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
+		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+				accesStagiaire, accesTechnicien, username, password);
 		this.formation = formation;
 		this.nivEnum = nivEnum;
 		this.ordinateur = ordinateur;
 	}
+	
+	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
+			Boolean accesTechnicien, String username, String password, NivEnum nivEnum) {
+		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+				accesStagiaire, accesTechnicien, username, password);
+		this.nivEnum = nivEnum;
+	}
+	
+	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+			String codePostal, NivEnum nivEnum) {
+		super(nom, prenom, coordonnées, rue, ville, codePostal);
+		this.nivEnum = nivEnum;
+	}
 
+	/**** METHODES*/	
+	
 	public Formation getFormation() {
 		return formation;
 	}
