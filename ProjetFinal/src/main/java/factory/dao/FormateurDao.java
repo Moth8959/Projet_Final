@@ -11,10 +11,10 @@ import factory.model.Formateur;
 public interface FormateurDao extends JpaRepository<Formateur, Long> {
 	
 	
-	@Query("select distinct f from Formateur f left join fetch f.formations ff where f.id = :id")
+	@Query("select distinct f from Formateur f left join fetch f.formation ff where f.id = :id")
 	Formateur findByIdWithFormations(@Param("id") Long id);
 	
-	@Query("select distinct f from Formateur f left join fetch f.modules fm where f.id = :id")
+	@Query("select distinct f from Formateur f left join fetch f.module fm where f.id = :id")
 	Formateur findByIdWithModules(@Param("id") Long id);
 
 }
