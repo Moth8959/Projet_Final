@@ -15,13 +15,13 @@ import factory.model.Views;
 @Table(name = "video_projector")
 public class VideoProjecteur extends RessourcesMaterielles{
 
-	@JsonView(Views.ViewCommon.class)
-	private Integer resolution;
-	@JsonView(Views.ViewCommon.class)
+		@JsonView(Views.ViewCommon.class)
+	private String resolution;
+		@JsonView(Views.ViewCommon.class)
 	private Boolean hdmi;
-	@JsonView(Views.ViewCommon.class)
+		@JsonView(Views.ViewCommon.class)
 	private Boolean vga;
-	@OneToMany(mappedBy="videoProjecteur")
+		@OneToMany(mappedBy="videoProjecteur")
 	private List<Module> modules = new ArrayList<>();
 	
 	/**** CONSTRUCTEURS*/
@@ -30,20 +30,24 @@ public class VideoProjecteur extends RessourcesMaterielles{
 		super();
 	}
 	
-	public VideoProjecteur(String code, Double coutUtilisation, Integer resolution, Boolean hdmi, Boolean vga, List<Module> modules) {
+	public VideoProjecteur(String code, Double coutUtilisation, String resolution, Boolean hdmi, Boolean vga) {
 		super(code, coutUtilisation);
 		this.resolution = resolution;
 		this.hdmi = hdmi;
 		this.vga = vga;
+	}
+	
+	public VideoProjecteur(String code, Double coutUtilisation, String resolution, Boolean hdmi, Boolean vga, List<Module> modules) {
+		this(code, coutUtilisation, resolution, hdmi, vga);
 		this.modules = modules;
 	}
 	
 	/**** METHODES*/	
 	
-	public Integer getResolution() {
+	public String getResolution() {
 		return resolution;
 	}
-	public void setResolution(Integer resolution) {
+	public void setResolution(String resolution) {
 		this.resolution = resolution;
 	}
 	public Boolean getHdmi() {
