@@ -9,7 +9,7 @@ import { HomeComponent } from './home.component';
 import { FormateurComponent } from './formateur/formateur.component';
 import {FormateurRestService} from './services/formateur.rest.service';
 import { MatiereComponent } from './matiere/matiere.component';
-import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -25,12 +25,12 @@ const routes: Routes = [
     HomeComponent,
     FormateurComponent,
     MatiereComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    RouterModule.forRoot(routesFormateur)
+    RouterModule.forRoot(routesFormateur),
+    HttpClientModule
   ],
   providers: [FormateurRestService],
   bootstrap: [AppComponent]

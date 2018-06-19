@@ -8,7 +8,7 @@ import {Formateur} from '../model/formateur';
 })
 export class FormateurRestService {
 
-  private url = 'http://localhost:8080/rest/formateur';
+  private url = 'http://localhost:8080/formateur';
 
   constructor(private http: HttpClient) { }
 
