@@ -8,7 +8,7 @@ import {Gestionnaire} from '../model/gestionnaire';
 })
 export class GestionnaireRestService {
 
-  private url = 'http://localhost:8080/gestionnaire';
+  private url = 'http://localhost:8080/gestion';
 
   constructor(private http: HttpClient) { }
 
