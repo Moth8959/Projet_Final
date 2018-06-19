@@ -41,8 +41,7 @@ public class Salle extends RessourcesMaterielles{
 	
 	@Override
 	public String toString() {
-		return "Salle [capacite=" + capacite + "]";
+		return "Salle [capacite=" + capacite + ", modules=" + modules + "]";
 	}
-	
 
 }
