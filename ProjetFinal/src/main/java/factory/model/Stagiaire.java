@@ -22,6 +22,7 @@ public class Stagiaire extends RessourcesHumaines{
 	
 	@Id
 	@GeneratedValue(generator = "seqStagiaire")
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	
 	@ManyToOne
