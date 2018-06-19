@@ -5,6 +5,7 @@ import {routesFormateur} from './formateur/routeFormateur';
 import {routesStagiaire} from './stagiaire/routeStagiaire';
 import {routesGestionnaire} from './gestionnaire/routeGestionnaire';
 import {routesTechnicien} from './technicien/routeTechnicien';
+import {routesCalendar} from './calendar/routeCalendar';
 
 
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ const routes: Routes = [
     RouterModule.forRoot(routesStagiaire),
     RouterModule.forRoot(routesTechnicien),
     RouterModule.forRoot(routesLogin),
+    RouterModule.forRoot(routesCalendar),
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService],
