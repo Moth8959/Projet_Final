@@ -24,7 +24,7 @@ public abstract class RessourcesHumaines {
 	private String prenom; 
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="phone_number", length=100)
-	private String coordonnées;
+	private String coordonnees;
 	@JsonView(Views.ViewCommon.class)
 	@Column(name="street", length=100)
 	private String rue;
@@ -60,13 +60,13 @@ public abstract class RessourcesHumaines {
 		super();
 	}
 
-	public RessourcesHumaines(String nom, String prenom, String coordonnées, String rue, String ville,
+	public RessourcesHumaines(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
 			Boolean accesTechnicien, String username, String password) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.coordonnées = coordonnées;
+		this.coordonnees = coordonnees;
 		this.rue = rue;
 		this.ville = ville;
 		this.codePostal = codePostal;
@@ -78,12 +78,12 @@ public abstract class RessourcesHumaines {
 		this.password = password;
 	}
 
-	public RessourcesHumaines(String nom, String prenom, String coordonnées, String rue, String ville,
+	public RessourcesHumaines(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.coordonnées = coordonnées;
+		this.coordonnees = coordonnees;
 		this.rue = rue;
 		this.ville = ville;
 		this.codePostal = codePostal;
@@ -107,11 +107,11 @@ public abstract class RessourcesHumaines {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getCoordonnées() {
-		return coordonnées;
+	public String getCoordonnees() {
+		return coordonnees;
 	}
-	public void setCoordonnées(String coordonnées) {
-		this.coordonnées = coordonnées;
+	public void setCoordonnees(String coordonnees) {
+		this.coordonnees = coordonnees;
 	}
 	public String getRue() {
 		return rue;

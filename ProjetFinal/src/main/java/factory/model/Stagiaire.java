@@ -47,27 +47,27 @@ public class Stagiaire extends RessourcesHumaines{
 		super();
 	}
 
-	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
 			Boolean accesTechnicien, String username, String password, Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
-		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
 				accesStagiaire, accesTechnicien, username, password);
 		this.formation = formation;
 		this.nivEnum = nivEnum;
 		this.ordinateur = ordinateur;
 	}
 	
-	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
 			Boolean accesTechnicien, String username, String password, NivEnum nivEnum) {
-		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
 				accesStagiaire, accesTechnicien, username, password);
 		this.nivEnum = nivEnum;
 	}
 	
-	public Stagiaire(String nom, String prenom, String coordonnées, String rue, String ville,
+	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, NivEnum nivEnum) {
-		super(nom, prenom, coordonnées, rue, ville, codePostal);
+		super(nom, prenom, coordonnees, rue, ville, codePostal);
 		this.nivEnum = nivEnum;
 	}
 

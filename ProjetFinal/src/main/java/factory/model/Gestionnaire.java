@@ -32,17 +32,17 @@ public class Gestionnaire extends RessourcesHumaines {
 		super();
 	}
 	
-	public Gestionnaire(String nom, String prenom, String coordonnées, String rue, String ville,
+	public Gestionnaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
 			Boolean accesTechnicien, String username, String password) {
 		
-		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
+		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
 				accesStagiaire, accesTechnicien, username, password);
 	}
 	
-	public Gestionnaire(String nom, String prenom, String coordonnées, String rue, String ville,
+	public Gestionnaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal) {
-		super(nom, prenom, coordonnées, rue, ville, codePostal);
+		super(nom, prenom, coordonnees, rue, ville, codePostal);
 	}
 
 	public Gestionnaire(List<Formation> formations) {
