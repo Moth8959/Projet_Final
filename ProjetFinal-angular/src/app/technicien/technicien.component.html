@@ -11,15 +11,96 @@
     <th scope="col">#</th>
     <th scope="col">Nom</th>
     <th scope="col">Prenom</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let m of techniciens">
-    <td>{{m.id}}</td>
-    <td>{{m.nom}}</td>
-    <td>{{m.prenom}}</td>
+  <tr *ngFor="let t of _techniciens">
+    <td>{{t.id}}</td>
+    <td>{{t.nom}}</td>
+    <td>{{t.prenom}}</td>
+    <td>
+      <button (click)="remove(t)" class="btn btn-danger">
+        SUPPRIMER
+      </button>
+      <button (click)="edit(t)" class="btn btn-warning">
+        MODIFIER
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
+
+<button (click)="edit([formTechnicien])" class="btn btn-primary">
+  Ajouter
+</button>
+
+<div class="container">
+  <h1>Technicien</h1>
+
+  <h2>Edition du technicien</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Nom du technicien</div>
+    </div>
+
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.nom" placeholder="Nom du technicien" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Prénom du technicien</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.prenom" placeholder="Prénom du technicien" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Coordonnées</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.coordonnees" placeholder="Coordonnées" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Rue</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.rue" placeholder="Rue" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Ville</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.ville" placeholder="Ville" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code postal</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.codePostal" placeholder="Code postal" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Nom d'utilisateur</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.username" placeholder="Nom d'utilisateur" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Mot de passe</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formTechnicien.password" placeholder="Mot de passe" />
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" >
+      <span>Valider</span>
+    </button>
+  </div>
+</div>
 
 </body>

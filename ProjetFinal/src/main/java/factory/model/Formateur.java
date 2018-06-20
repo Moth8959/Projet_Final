@@ -41,19 +41,19 @@ public class Formateur extends RessourcesHumaines {
 		super();
 	}
 
-	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, String codePostal,
+	public Formateur(String nom, String prenom, String coordonnees, String rue, String ville, String codePostal,
 			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
 			String username, String password) {
-		super(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
+		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
 				accesTechnicien, username, password);
 	}
 
 	
 
-	public Formateur(String nom, String prenom, String coordonnées, String rue, String ville, String codePostal,
+	public Formateur(String nom, String prenom, String coordonnees, String rue, String ville, String codePostal,
 			Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire, Boolean accesTechnicien,
 			String username, String password, List<Matiere> matieres, Formation formation, Module module) {
-		this(nom, prenom, coordonnées, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
+		this(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesFormateur, accesStagiaire,
 				accesTechnicien, username, password);
 		this.matieres = matieres;
 		this.formation = formation;

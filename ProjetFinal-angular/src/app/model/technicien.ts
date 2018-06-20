@@ -1,8 +1,11 @@
 export class Technicien {
-  constructor(private _id: number, private _nom: string, private _prenom: string, private _username: string, private _password: string) {
+  constructor(private _id: number, private _nom: string, private _prenom: string,
+              private _coordonnees: string, private _rue: string, private _ville: string,
+              private _codePostal: string, private _username: string, private _password: string,
+              private _accesAdministrateur: boolean, private _accesFormateur: boolean,
+              private _accesStagiaire: boolean, private _accesTechnicien: boolean) {
 
   }
-
 
   get id(): number {
     return this._id;
@@ -42,5 +45,70 @@ export class Technicien {
 
   set password(value: string) {
     this._password = value;
+  }
+
+
+  get coordonnees(): string {
+    return this._coordonnees;
+  }
+
+  set coordonnees(value: string) {
+    this._coordonnees = value;
+  }
+
+  get rue(): string {
+    return this._rue;
+  }
+
+  set rue(value: string) {
+    this._rue = value;
+  }
+
+  get ville(): string {
+    return this._ville;
+  }
+
+  set ville(value: string) {
+    this._ville = value;
+  }
+
+  get codePostal(): string {
+    return this._codePostal;
+  }
+
+  set codePostal(value: string) {
+    this._codePostal = value;
+  }
+
+  get accesAdministrateur(): boolean {
+    return this._accesAdministrateur;
+  }
+
+  set accesAdministrateur(value: boolean) {
+    this._accesAdministrateur = value;
+  }
+
+  get accesFormateur(): boolean {
+    return this._accesFormateur;
+  }
+
+  set accesFormateur(value: boolean) {
+    this._accesFormateur = value;
+  }
+
+  get accesStagiaire(): boolean {
+    return this._accesStagiaire;
+  }
+
+  set accesStagiaire(value: boolean) {
+    this._accesStagiaire = value;
+  }
+
+  get accesTechnicien(): boolean {
+    return this._accesTechnicien;
+  }
+
+  set accesTechnicien(value: boolean) {
+    this._accesTechnicien = value;
   }
 }
