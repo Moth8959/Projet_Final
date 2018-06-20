@@ -3,7 +3,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<div class = "container">
+
 
 <table class="table">
   <thead class="thead-dark">
@@ -11,21 +12,56 @@
     <th scope="col">#</th>
     <th scope="col">Nom</th>
     <th scope="col">Prenom</th>
-    <th scope="col">Compétences</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let m of formateurs">
-    <td>{{m.id}}</td>
-    <td>{{m.nom}}</td>
-    <td>{{m.prenom}}</td>
+  <tr *ngFor="let f of formateurs">
+    <td>{{f.id}}</td>
+    <td>{{ f.nom }}</td>
+    <td>{{ f.prenom }}</td>
+
     <td>
-      <a href="#">
-        <span class="glyphicon glyphicon-book" href="" [routerLink]="['/home']"></span>
-      </a>
+      <button (click)="edit(f)" class="btn btn-primary">EDITER</button>
+      <button (click)="remove(f)" class="btn btn-danger">SUPPRIMER</button>
     </td>
   </tr>
   </tbody>
 </table>
 
-</body>
+</div>
+
+ <hr/>
+
+<div class = "container">
+
+  <h1> Formateurs </h1>
+
+  <h2> Ajout/modification d'un formateur </h2>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Nom du formateur</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formFormateur.nom" placeholder='' />
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Prenom du formateur</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formFormateur.prenom" placeholder='' />
+  </div>
+
+
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formFormateur.nom">
+      <span>Valider</span>
+    </button>
+  </div>
+
+</div>
