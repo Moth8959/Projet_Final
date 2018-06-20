@@ -5,6 +5,9 @@ import {routesFormateur} from './formateur/routeFormateur';
 import {routesStagiaire} from './stagiaire/routeStagiaire';
 import {routesGestionnaire} from './gestionnaire/routeGestionnaire';
 import {routesTechnicien} from './technicien/routeTechnicien';
+import {routesCalendar} from './calendar/routeCalendar';
+
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 import { AppComponent } from './app.component';
 import { ContactComponent } from './Divers/contact.component';
@@ -24,6 +27,7 @@ import {FormsModule} from '@angular/forms';
 import {StagiaireDetailComponent} from './stagiaire/stagiaire.detail.component';
 
 
+import { EventService } from './services/event.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -52,9 +56,12 @@ const routes: Routes = [
     RouterModule.forRoot(routesGestionnaire),
     RouterModule.forRoot(routesStagiaire),
     RouterModule.forRoot(routesTechnicien),
+    RouterModule.forRoot(routesCalendar),
+    FormsModule,
+    FullCalendarModule,
     HttpClientModule
   ],
-  providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService],
+  providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
