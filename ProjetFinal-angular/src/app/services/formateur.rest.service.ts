@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Formateur} from '../model/formateur';
+import {Stagiaire} from "../model/stagiaire";
 
 @Injectable({
   providedIn: 'root'
@@ -14,35 +15,27 @@ export class FormateurRestService {
 
   constructor(private http: HttpClient) { }
 
-  public findAll(): Observable <Formateur[]> {
-    return this.http.get <Formateur[]>(this.url);
+  public delete(formateur: Formateur): Observable<any> {
+    return this.http
+      .delete(this.url + '/' + formateur.id);
   }
 
-  public findById(id: number): Observable<Formateur []> {
-    return this.http.get <Formateur[]>(this.url+ id);
+  public findById(id: number): Observable<Formateur> {
+    return this.http.get <Formateur>(this.url + '/' + id);
   }
 
-  public save(formateur: Formateur) {
+  public save(formateur: Formateur): Observable<any> {
     // POST OU PUT
     if (formateur.id == null) {
-      this.http
-        .post(this.url, formateur)
-        .subscribe(result => {
-          this.findAll();
-        });
+      return this.http
+        .post(this.url+ '/', formateur);
     } else {
-      this.http
-        .put(this.url + formateur.id, formateur)
-        .subscribe();
+      return this.http
+        .put(this.url + '/' + formateur.id, formateur);
     }
-
   }
 
-
-  public delete(formateur: Formateur) {
-    this.http
-      .delete(this.url + formateur.id)
-      .subscribe();
+  public findAll(): Observable <Stagiaire[]> {
+    return this.http.get <Formateur[]>(this.url);
   }
-
 }

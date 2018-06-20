@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormateurRestService} from '../services/formateur.rest.service';
 import {Formateur} from '../model/formateur';
+import {Stagiaire} from "../model/stagiaire";
 
 @Component({
   selector: 'app-formateur',
@@ -14,26 +15,33 @@ export class FormateurComponent implements OnInit {
 
   constructor(private formateurRestService: FormateurRestService) { }
 
+  get formateurs(): Formateur[] {
+    return this._formateurs;
+  }
+
   public edit(formateur: Formateur) {
     this.formFormateur = formateur;
   }
 
   public save() {
-    this.formateurRestService.save(this.formFormateur);
-    this.formFormateur = new Formateur(null, '', '');
-    this.formateurRestService.findAll().subscribe(resultat => {
-      this._formateurs = resultat;
-    }, error => {
-      console.log(error);
+    this.formateurRestService.save(this.formFormateur).subscribe(resultat => {
+      this.formateurRestService.findAll().subscribe(result => {
+        this._formateurs = result;
+      }, error => {
+        console.log(error);
+      });
     });
+
+    this.formFormateur = new Formateur(null, '','' );
   }
 
   public remove(formateur: Formateur) {
-    this.formateurRestService.delete(formateur);
-    this.formateurRestService.findAll().subscribe(resultat => {
-      this._formateurs = resultat;
-    }, error => {
-      console.log(error);
+    this.formateurRestService.delete(formateur).subscribe(resultat =>{
+      this.formateurRestService.findAll().subscribe(resultat => {
+        this._formateurs = resultat;
+      }, error => {
+        console.log(error);
+      });
     });
   }
 
@@ -44,7 +52,5 @@ export class FormateurComponent implements OnInit {
       console.log(error);
     });
   }
-  get formateurs(): Formateur[] {
-    return this._formateurs;
-  }
+
 }
