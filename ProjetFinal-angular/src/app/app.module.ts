@@ -5,7 +5,7 @@ import {routesFormateur} from './formateur/routeFormateur';
 import {routesStagiaire} from './stagiaire/routeStagiaire';
 import {routesGestionnaire} from './gestionnaire/routeGestionnaire';
 import {routesTechnicien} from './technicien/routeTechnicien';
-import {routesCalendar} from './calendar/routeCalendar';
+import {routesCalendrier} from './calendrier/routeCalendrier';
 
 import { FullCalendarModule } from 'ng-fullcalendar';
 
@@ -22,7 +22,7 @@ import { TechnicienComponent } from './technicien/technicien.component';
 import {StagiaireRestService} from './services/stagiaire.rest.service';
 import {TechnicienRestService} from './services/technicien.rest.service';
 import {GestionnaireRestService} from './services/gestionnaire.rest.service';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendrierComponent } from './calendar/calendrier.component';
 import {FormsModule} from '@angular/forms';
 import {StagiaireDetailComponent} from './stagiaire/stagiaire.detail.component';
 
@@ -45,7 +45,7 @@ const routes: Routes = [
     StagiaireComponent,
     GestionnaireComponent,
     TechnicienComponent,
-    CalendarComponent,
+    CalendrierComponent,
     StagiaireDetailComponent,
   ],
   imports: [
