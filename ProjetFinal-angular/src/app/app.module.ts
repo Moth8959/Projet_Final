@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {routesFormateur} from './formateur/routeFormateur';
 import {routesStagiaire} from './stagiaire/routeStagiaire';
 import {routesGestionnaire} from './gestionnaire/routeGestionnaire';
 import {routesTechnicien} from './technicien/routeTechnicien';
-import {routesCalendar} from './calendar/routeCalendar';
-
 
 import { AppComponent } from './app.component';
 import { ContactComponent } from './Divers/contact.component';
@@ -21,8 +20,6 @@ import { TechnicienComponent } from './technicien/technicien.component';
 import {StagiaireRestService} from './services/stagiaire.rest.service';
 import {TechnicienRestService} from './services/technicien.rest.service';
 import {GestionnaireRestService} from './services/gestionnaire.rest.service';
-import { LoginComponent } from './login/login.component';
-import {routesLogin} from './login/routeLogin';
 import { CalendarComponent } from './calendar/calendar.component';
 
 
@@ -43,8 +40,7 @@ const routes: Routes = [
     StagiaireComponent,
     GestionnaireComponent,
     TechnicienComponent,
-    LoginComponent,
-    CalendarComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +49,6 @@ const routes: Routes = [
     RouterModule.forRoot(routesGestionnaire),
     RouterModule.forRoot(routesStagiaire),
     RouterModule.forRoot(routesTechnicien),
-    RouterModule.forRoot(routesLogin),
-    RouterModule.forRoot(routesCalendar),
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService],
