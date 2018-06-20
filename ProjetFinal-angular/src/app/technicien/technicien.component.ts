@@ -15,11 +15,14 @@ export class TechnicienComponent implements OnInit {
   public _techniciens: Technicien[];
   public formTechnicien: Technicien = new Technicien(null, '', '', '', '', '', '', null, null, null, null, null, null);
   // public formTechnicien: Technicien = new Technicien(null, '', '', '', '', '', '', '', '', false, false, false, false);
+  public formulaireShow: Boolean = false;
+
 
   constructor(private technicienRestService: TechnicienRestService) { }
 
   public edit(technicien: Technicien) {
     this.formTechnicien = technicien;
+    this.formulaireShow = true;
   }
 
   public save() {
@@ -34,6 +37,8 @@ export class TechnicienComponent implements OnInit {
         }
       );}
     );
+    this.formTechnicien = new Technicien(null, '', '', '', '', '', '', null, null, null, null, null, null);
+    this.formulaireShow = false;
   }
 
 
