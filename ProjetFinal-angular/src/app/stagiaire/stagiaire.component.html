@@ -1,3 +1,5 @@
+<div class="container">
+  <h2>Liste des stagiaires</h2>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -5,13 +7,13 @@
 
 <body>
 
-<table class="table">
+<table class="table table-striped">
   <thead class="thead-dark">
   <tr>
     <th scope="col">#</th>
     <th scope="col">Nom</th>
     <th scope="col">Prenom</th>
-    <th scope="col">Niveau</th>
+    <th scope="col">Action</th>
   </tr>
   </thead>
   <tbody>
@@ -19,9 +21,41 @@
     <td>{{m.id}}</td>
     <td>{{m.nom}}</td>
     <td>{{m.prenom}}</td>
-    <td>{{m.niveau}}</td>
+    <td>
+      <button (click)="edit(m)" class="btn btn-primary">EDITER</button>
+      <button (click)="remove(m)" class="btn btn-danger">SUPPRIMER</button>
+    </td>
   </tr>
   </tbody>
 </table>
 
 </body>
+  </div>
+
+
+<div class="container">
+
+  <h2>Ajouter / modifier un stagiaire</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Nom de stagiaire</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.nom" placeholder="Nom de stagiaire" />
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Prenom de stagiaire</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.prenom" placeholder="prenom de stagiaire" />
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formStagiaire.nom">
+      <span>Valider</span>
+    </button>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export class Stagiaire {
-  constructor(private _id: number, private _nom: string, private _prenom: string, private _niveau: string, private _username: string, private _password: string) {
+  constructor(private _id: number, private _nom: string, private _prenom: string, private _niveau?: string, private _username?: string, private _password?: string) {
 
   }
 

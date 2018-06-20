@@ -20,6 +20,8 @@ import {StagiaireRestService} from './services/stagiaire.rest.service';
 import {TechnicienRestService} from './services/technicien.rest.service';
 import {GestionnaireRestService} from './services/gestionnaire.rest.service';
 import { CalendarComponent } from './calendar/calendar.component';
+import {FormsModule} from '@angular/forms';
+import {StagiaireDetailComponent} from './stagiaire/stagiaire.detail.component';
 
 
 
@@ -39,9 +41,11 @@ const routes: Routes = [
     StagiaireComponent,
     GestionnaireComponent,
     TechnicienComponent,
-    CalendarComponent
+    CalendarComponent,
+    StagiaireDetailComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
     RouterModule.forRoot(routesFormateur),
