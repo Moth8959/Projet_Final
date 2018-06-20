@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {routesFormateur} from './formateur/routeFormateur';
 import {routesStagiaire} from './stagiaire/routeStagiaire';
