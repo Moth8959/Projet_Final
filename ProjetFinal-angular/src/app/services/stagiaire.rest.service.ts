@@ -21,21 +21,16 @@ export class StagiaireRestService {
     return this.http.get <Stagiaire>(this.url + '/' + id);
   }
 
-  public save(stagiaire: Stagiaire) {
+  public save(stagiaire: Stagiaire): Observable<any> {
     // POST OU PUT
     if (stagiaire.id == null) {
-      this.http
-        .post(this.url+ '/', stagiaire)
-        .subscribe(result => {
-          this.findAll();
-        });
+     return this.http
+        .post(this.url+ '/', stagiaire);
     } else {
-      this.http
-        .put(this.url + '/' + stagiaire.id, stagiaire)
-        .subscribe();
+     return this.http
+        .put(this.url + '/' + stagiaire.id, stagiaire);
     }
-
-  }
+}
 
   public findAll(): Observable <Stagiaire[]> {
     return this.http.get <Stagiaire[]>(this.url);

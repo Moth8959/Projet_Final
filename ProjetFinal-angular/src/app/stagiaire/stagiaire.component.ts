@@ -12,7 +12,10 @@ export class StagiaireComponent implements OnInit {
 
   private _stagiaires: Stagiaire[];
 
+
+
   public formStagiaire: Stagiaire = new Stagiaire( null, '',  '');
+
 
   constructor(private stagiaireRestService: StagiaireRestService) { }
 
@@ -25,18 +28,20 @@ export class StagiaireComponent implements OnInit {
   }
 
   public save() {
-    this.stagiaireRestService.save(this.formStagiaire);
-    this.formStagiaire = new Stagiaire(null, '', '');
-    this.stagiaireRestService.findAll().subscribe(resultat => {
-      this.stagiaires = resultat;
+
+    this.stagiaireRestService.save(this.formStagiaire).subscribe(resultat => {
+    this.stagiaireRestService.findAll().subscribe(result => {
+      this._stagiaires = result;
     }, error => {
       console.log(error);
     });
+  });
+    this.formStagiaire = new Stagiaire(null, '','' );
   }
 
   public remove(stagiaire: Stagiaire) {
     this.stagiaireRestService.delete(stagiaire).subscribe(resultat =>{
-      this.stagiaireRestService.findAll().subscribe(resultat=> {
+      this.stagiaireRestService.findAll().subscribe(resultat => {
         this._stagiaires = resultat;
       }, error => {
         console.log(error);
