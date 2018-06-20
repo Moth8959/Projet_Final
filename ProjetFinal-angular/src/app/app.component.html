@@ -46,7 +46,7 @@
             Gestion du planning
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="" [routerLink]="['/calendar']" routerLinkActive="active">Calendrier/Planning</a>
+            <a class="dropdown-item" href="" [routerLink]="['/calendrier']" routerLinkActive="active">Calendrier/Planning</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
@@ -98,10 +98,7 @@
 
 
   <router-outlet></router-outlet>
-  <div *ngIf="calendarOptions">
-    <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
-                     (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
-  </div>
+
 
   <footer id="footer">
     <div class="text-center"> © 2018 — <a href="http://www.ajc-ingenierie.fr/">AJC Ingénierie</a> promotion Fakir (Sopra
