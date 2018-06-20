@@ -25,6 +25,8 @@ import {GestionnaireRestService} from './services/gestionnaire.rest.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import {FormsModule} from '@angular/forms';
 import {StagiaireDetailComponent} from './stagiaire/stagiaire.detail.component';
+import { LoginComponent } from './login/login.component';
+import {routesLogin} from './login/routeLogin';
 
 
 import { EventService } from './services/event.service';
@@ -46,7 +48,8 @@ const routes: Routes = [
     GestionnaireComponent,
     TechnicienComponent,
     CalendarComponent,
-    StagiaireDetailComponent
+    StagiaireDetailComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -59,6 +62,7 @@ const routes: Routes = [
     RouterModule.forRoot(routesCalendar),
     FormsModule,
     FullCalendarModule,
+    RouterModule.forRoot(routesLogin),
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService],
