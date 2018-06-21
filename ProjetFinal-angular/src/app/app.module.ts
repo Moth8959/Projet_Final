@@ -25,6 +25,10 @@ import { GestionnaireRestService} from './services/gestionnaire.rest.service';
 import { CalendrierComponent } from './calendrier/calendrier.component';
 import { FormsModule} from '@angular/forms';
 import { StagiaireDetailComponent} from './stagiaire/stagiaire.detail.component';
+import { FormioAppConfig } from 'angular-formio';
+import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
+import { AuthConfig, AppConfig } from '../config';
+import { AuthModule } from './auth/auth.module';
 
 
 import { EventService } from './services/event.service';
@@ -32,7 +36,9 @@ import { EventService } from './services/event.service';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'auth', loadChildren: () => AuthModule}
+
 ];
 
 @NgModule({
@@ -61,7 +67,10 @@ const routes: Routes = [
     FullCalendarModule,
     HttpClientModule
   ],
-  providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService],
+  providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService,
+    FormioAuthService,
+    {provide: FormioAuthConfig, useValue: AuthConfig},
+    {provide: FormioAppConfig, useValue: AppConfig}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
