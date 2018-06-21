@@ -15,6 +15,8 @@ export class StagiaireRestService {
   public delete(stagiaire: Stagiaire): Observable<any> {
    return this.http
       .delete(this.url + '/' + stagiaire.id);
+
+
   }
 
   public findById(id: number): Observable<Stagiaire> {

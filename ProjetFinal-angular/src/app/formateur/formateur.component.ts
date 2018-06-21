@@ -10,7 +10,7 @@ import {Stagiaire} from "../model/stagiaire";
 })
 export class FormateurComponent implements OnInit {
 
-  public _formateurs: Formateur[];
+  private _formateurs: Formateur[];
   public formFormateur: Formateur = new Formateur( null, '', '');
 
   constructor(private formateurRestService: FormateurRestService) { }

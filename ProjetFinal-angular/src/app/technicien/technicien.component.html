@@ -21,11 +21,11 @@
       <td>{{t.nom}}</td>
       <td>{{t.prenom}}</td>
       <td>
+        <button (click)="edit(t)" class="btn btn-primary">
+          EDITER
+        </button>
         <button (click)="remove(t)" class="btn btn-danger">
           SUPPRIMER
-        </button>
-        <button (click)="edit(t)" class="btn btn-warning">
-          MODIFIER
         </button>
       </td>
     </tr>

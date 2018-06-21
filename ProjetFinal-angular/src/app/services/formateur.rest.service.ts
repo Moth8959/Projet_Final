@@ -9,8 +9,6 @@ import {Stagiaire} from "../model/stagiaire";
 })
 export class FormateurRestService {
 
-  private formateurs: Array<Formateur>;
-
   private url = 'http://localhost:8080/formateur';
 
   constructor(private http: HttpClient) { }
