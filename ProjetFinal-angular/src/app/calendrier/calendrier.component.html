@@ -9,24 +9,7 @@
   <script src="../assets/js/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 
-
-  <style>
-
-    body {
-      margin: 40px 10px;
-      padding: 0;
-      font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-      font-size: 14px;
-    }
-
-    #calendar {
-      /*max-width: 900px;*/
-      margin: 15px;
-    }
-
-  </style>
-
-
+  <h3>Planning des modules : </h3>
 
   <a class="btn btn-primary" (click)="loadevents()"> Chargement</a>
   <p>Display event : {{displayEvent | json}}</p>
@@ -40,7 +23,7 @@
                      (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
   </div>
 
-    <button onclick="pdfDownload()">To image via html2canvas</button>
+    <button class="btn btn-success" type="button" onclick="pdfDownload()" id="pdfDowload">To image via html2canvas</button>
 
 
 

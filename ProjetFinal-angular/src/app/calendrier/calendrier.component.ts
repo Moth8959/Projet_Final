@@ -16,10 +16,6 @@ export class CalendrierComponent implements OnInit {
   isWeekend = true;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
   constructor(protected eventService: EventService) {
-
-
-
-
   }
 
   ngOnInit() {
@@ -34,11 +30,40 @@ export class CalendrierComponent implements OnInit {
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
       },
-      events: [{
+      events: [
+        {
+          title: 'Spring core et data JPA',
+          start: '2018-05-25',
+          end: '2018-05-30',
+          color: 'lightBlue',
+          textColor: 'darkBlue',
+        },
+        {
+          title: 'Servlet JSP',
+          start: '2018-05-30',
+          end: '2018-06-01',
+          color: 'red',
+          textColor: 'white',
+        },
+        {
+          title: 'Spring MVC',
+          start: '2018-06-01',
+          end: '2018-06-06',
+          color: 'pink',
+        },
+        {
+          title: 'Spring boot, rest et securité',
+          start: '2018-06-06',
+          end: '2018-06-11',
+          color: 'purple',
+          textColor: 'white',
+        },
+          {
         title: 'Angular 4',
         start: '2018-06-11',
         end: '2018-06-15',
         color: 'red',
+            textColor: 'white',
       },
         {
         title: 'Projet Final',
@@ -115,8 +140,6 @@ export class CalendrierComponent implements OnInit {
 
   pdfDownload() {
     console.log('pdfDownload() entered');
-    html2canvas(document.body).then((canvas) => {
-      window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
-    });
+
   }
 }
