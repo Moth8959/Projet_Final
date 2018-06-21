@@ -6,13 +6,14 @@
 <body>
 <div class="container">
   <h2>Liste des techniciens</h2>
-  <table class="table">
+  <div class="row">
+   <table class="table">
     <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
-      <th scope="col">Actions</th>
+      <th class='centre' scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -20,18 +21,21 @@
       <td>{{t.id}}</td>
       <td>{{t.nom}}</td>
       <td>{{t.prenom}}</td>
-      <td>
-        <button (click)="edit(t)" class="btn btn-primary">
+      <td class='centre'>
+        <button (click)="edit(t)" class="btn btn-primary btn-xs">
+          DETAILS
+        </button>
+        <button (click)="edit(t)" class="btn btn-success btn-xs">
           EDITER
         </button>
-        <button (click)="remove(t)" class="btn btn-danger">
+        <button (click)="remove(t)" class="btn btn-danger btn-xs">
           SUPPRIMER
         </button>
       </td>
     </tr>
     </tbody>
   </table>
-
+  </div>
   <button (click)="edit([formTechnicien])" class="btn btn-primary">
     Ajouter
   </button>
