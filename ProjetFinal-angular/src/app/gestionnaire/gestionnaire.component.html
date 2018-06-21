@@ -4,31 +4,63 @@
 </head>
 
 <body>
+<div class="container">
+  <h2>Liste des gestionnaires</h2>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let g of gestionnaires ">
+      <td>{{g.id}}</td>
+      <td>{{g.nom}}</td>
+      <td>{{g.prenom}}</td>
+      <td>
+        <button (click)="edit(g)" class="btn btn-primary">
+          EDITER
+        </button>
+        <button (click)="remove(g)" class="btn btn-danger">
+          SUPPRIMER
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Nom</th>
-    <th scope="col">Prenom</th>
-    <th scope="col">Formations</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let m of gestionnaires">
-    <td>{{m.id}}</td>
-    <td>{{m.nom}}</td>
-    <td>{{m.prenom}}</td>
-    <td>
-      <a href="#">
-        <span class="glyphicon glyphicon-book" href="" [routerLink]="['/home']"></span>
-      </a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+  <button (click)="edit([formGestionnaire])" class="btn btn-primary">
+    Ajouter
+  </button>
 
+  <div class="container" *ngIf="formulaireShow">
+    <h1>Gestionnaire</h1>
+
+    <h2>Edition du gestionnaire</h2>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Nom du gestionnaire</div>
+      </div>
+
+      <input type="text" class="form-control" [(ngModel)]="formGestionnaire.nom" placeholder="Nom du technicien" />
+    </div>
+
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Prénom du gestionnaire</div>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="formGestionnaire.prenom" placeholder="Prénom du technicien" />
+    </div>
+
+
+    <div class="row mb-2 col-auto">
+      <button (click)="save()" class="btn btn-success" >
+        <span>Valider</span>
+      </button>
+    </div>
+  </div>
+</div>
 </body>
-<p>
-  gestionnaire works!
-</p>
