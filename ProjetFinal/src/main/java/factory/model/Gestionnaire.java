@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class Gestionnaire extends RessourcesHumaines {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "seqGestionnaire")
 	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 
