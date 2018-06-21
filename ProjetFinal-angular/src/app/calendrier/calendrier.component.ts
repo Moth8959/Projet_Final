@@ -25,6 +25,7 @@ export class CalendrierComponent implements OnInit {
       eventLimit: false,
       weekends: this.isWeekend,
       businessHours: true,
+      themeSystem: 'bootstrap3',
       header: {
         left: 'prev,next today',
         center: 'title',

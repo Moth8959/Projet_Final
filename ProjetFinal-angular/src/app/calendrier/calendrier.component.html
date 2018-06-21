@@ -10,13 +10,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 
   <h3>Planning des modules : </h3>
-
-  <a class="btn btn-primary" (click)="loadevents()"> Chargement</a>
   <p>Display event : {{displayEvent | json}}</p>
+  <div class="container">
+    <div class="row">
+      <a class="btn btn-primary" (click)="loadevents()"> Chargement</a>
 
-  <div class="checkbox">
-    <label><input type="checkbox" checked/> Aff. weekends </label>
+
+      <div class="checkbox">
+        <label><input type="checkbox" checked/> Aff. weekends </label>
+      </div>
+    </div>
   </div>
+
 
   <div id="calendar" *ngIf="calendarOptions">
     <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
