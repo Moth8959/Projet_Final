@@ -8,11 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css" rel="stylesheet" media="print">
-  <script src="../assets/js/moment.min.js"></script>
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+
 
 
 </head>
@@ -46,7 +43,7 @@
             Gestion du planning
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="" [routerLink]="['/calendar']" routerLinkActive="active">Calendrier/Planning</a>
+            <a class="dropdown-item" href="" [routerLink]="['/calendrier']" routerLinkActive="active">Calendrier/Planning</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
@@ -98,11 +95,8 @@
 
 
   <router-outlet></router-outlet>
-  <div *ngIf="calendarOptions">
-    <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
-                     (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
-  </div>
 
+  <hr>
   <footer id="footer">
     <div class="text-center"> © 2018 — <a href="http://www.ajc-ingenierie.fr/">AJC Ingénierie</a> promotion Fakir (Sopra
       Energie)
