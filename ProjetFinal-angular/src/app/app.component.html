@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-
-</head>
-<body>
 <div id="top">
   Langue :
   <select id="locale-selector">
     <option value="en">en</option>
     <option value="es">es</option>
-    <option value="eu">eu</option>
     <option value="fr" selected >fr</option>
   </select>
 </div>
 
 <div class="container">
-  <nav class="navbar  sticky-top navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#">La Factory <br/> <em>
+  <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="home">La Factory <br/> <em>
       <small>l'usine à talent</small>
     </em></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" [routerLink]="['/home']">Accueil <span class="sr-only">(current)</span></a>
         </li>
 
 
@@ -68,9 +63,9 @@
             Gestion du matériel
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/salles">Salles</a>
-            <a class="dropdown-item" href="/ordinateurs">Ordinateurs</a>
-            <a class="dropdown-item" href="/videoprojecteurs">Vidéoprojecteurs</a>
+            <a class="dropdown-item" href="#" [routerLink]="['/salle']"> Salles </a>
+            <a class="dropdown-item" href="#" [routerLink]="['/ordinateur']"> Ordinateurs </a>
+            <a class="dropdown-item" href="#" [routerLink]="['/videoprojecteur']"> Videoprojecteurs </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Prévisions des stocks</a>
           </div>
@@ -79,19 +74,24 @@
 
 
         <li class="nav-item ml-5 pl-5">
-          <a class="nav-link pull-right" href="/contact">Contact</a>
+          <a class="nav-link pull-right" href="#" [routerLink]="['/contact']">Contact</a>
         </li>
 
+<!--        <li>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+        </li>-->
+
         <li class="nav-item ml-5 pl-5">
-          <a class="nav-link pull-right" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
+          <button type="button" class="nav-link pull-right btn btn-success text-white" onclick="document.getElementById('id01').style.display='block'" style="width:100px;">Login</button>
         </li>
 
       </ul>
 
-      <!--      <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>-->
+
 
     </div>
   </nav>
@@ -139,5 +139,4 @@
     </div>
   </footer>
 </div>
-</body>
-</html>
+

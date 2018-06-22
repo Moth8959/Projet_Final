@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TechnicienRestService} from '../services/technicien.rest.service';
 import {Technicien} from '../model/technicien';
 import { Observable} from 'rxjs';
+import {HostListener} from '@angular/core';
+
+
 
 
 
@@ -18,11 +21,16 @@ export class TechnicienComponent implements OnInit {
   public formulaireShow: Boolean = false;
 
 
+
   constructor(private technicienRestService: TechnicienRestService) { }
 
   public edit(technicien: Technicien) {
     this.formTechnicien = technicien;
     this.formulaireShow = true;
+  }
+
+  public toggleEdit(){
+    this.formulaireShow = !this.formulaireShow;
   }
 
   public save() {
@@ -59,5 +67,18 @@ export class TechnicienComponent implements OnInit {
       console.log(error);
     });
   }
+
+  @HostListener('window:keydown', ['$event'])
+  keyValidation(event: KeyboardEvent) {
+    if (event.keyCode === 27) {
+      console.log('Touche Esc appuyé!');
+      this.formulaireShow = false;
+
+    } else if (event.keyCode === 13) {
+      console.log('Touche Entrée appuyé!');
+      this.save();
+    }
+  }
+
 
 }

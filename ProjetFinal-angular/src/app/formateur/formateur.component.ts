@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {FormateurRestService} from '../services/formateur.rest.service';
 import {Formateur} from '../model/formateur';
-import {Stagiaire} from "../model/stagiaire";
+
 
 @Component({
   selector: 'app-formateur',
@@ -11,7 +11,8 @@ import {Stagiaire} from "../model/stagiaire";
 export class FormateurComponent implements OnInit {
 
   private _formateurs: Formateur[];
-  public formFormateur: Formateur = new Formateur( null, '', '');
+  public formFormateur: Formateur = new Formateur(null, '', '', '', '', '', '', null, null, null, null, null, null);
+  public formulaireShow: Boolean = false;
 
   constructor(private formateurRestService: FormateurRestService) { }
 
@@ -21,6 +22,11 @@ export class FormateurComponent implements OnInit {
 
   public edit(formateur: Formateur) {
     this.formFormateur = formateur;
+    this.formulaireShow = true;
+  }
+
+  public toggleEdit(){
+    this.formulaireShow = !this.formulaireShow;
   }
 
   public save() {
@@ -32,7 +38,7 @@ export class FormateurComponent implements OnInit {
       });
     });
 
-    this.formFormateur = new Formateur(null, '','' );
+    this.formFormateur = new Formateur(null, '', '', '', '', '', '', null, null, null, null, null, null);
   }
 
   public remove(formateur: Formateur) {
@@ -51,6 +57,18 @@ export class FormateurComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  keyValidation(event: KeyboardEvent) {
+    if (event.keyCode === 27) {
+      console.log('Touche Esc appuyé!');
+      this.formulaireShow = false;
+
+    } else if (event.keyCode === 13) {
+      console.log('Touche Entrée appuyé!');
+      this.save();
+    }
   }
 
 }

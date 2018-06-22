@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {GestionnaireRestService} from '../services/gestionnaire.rest.service';
 import {Gestionnaire} from '../model/gestionnaire';
 
@@ -24,6 +24,10 @@ export class GestionnaireComponent implements OnInit {
   public edit(gestionnaire: Gestionnaire) {
     this.formGestionnaire = gestionnaire;
     this.formulaireShow = true;
+  }
+
+  public toggleEdit(){
+    this.formulaireShow = !this.formulaireShow;
   }
 
   public save() {
@@ -55,5 +59,16 @@ export class GestionnaireComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+  @HostListener('window:keydown', ['$event'])
+  keyValidation(event: KeyboardEvent) {
+    if (event.keyCode === 27) {
+      console.log('Touche Esc appuyé!');
+      this.formulaireShow = false;
+
+    } else if (event.keyCode === 13) {
+      console.log('Touche Entrée appuyé!');
+      this.save();
+    }
   }
 }

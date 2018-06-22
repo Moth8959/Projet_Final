@@ -9,27 +9,28 @@
   <script src="../assets/js/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 
-  <h3>Planning des modules : </h3>
-  <p>Display event : {{displayEvent | json}}</p>
   <div class="container">
-    <div class="row">
-      <a class="btn btn-primary" (click)="loadevents()"> Chargement</a>
+    <h2>Planning des modules : </h2>
+    <p>Display event : {{displayEvent | json}}</p>
+    <div class="container">
+      <div class="row">
+        <button type="button" class="btn btn-primary" (click)="loadevents()"> Chargement</button>
 
 
-      <div class="checkbox">
-        <label><input type="checkbox" checked/> Aff. weekends </label>
+        <div class="checkbox">
+          <label><input type="checkbox" checked/> Aff. weekends </label>
+        </div>
       </div>
     </div>
+
+
+    <div id="calendar" *ngIf="calendarOptions">
+      <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+                       (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+    </div>
+
+      <button class="btn btn-success" type="button" onclick="pdfDownload()" id="pdfDowload">To image via html2canvas</button>
   </div>
-
-
-  <div id="calendar" *ngIf="calendarOptions">
-    <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
-                     (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
-  </div>
-
-    <button class="btn btn-success" type="button" onclick="pdfDownload()" id="pdfDowload">To image via html2canvas</button>
-
 
 
 

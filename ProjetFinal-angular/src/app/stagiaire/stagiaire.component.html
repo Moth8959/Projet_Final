@@ -1,19 +1,13 @@
 <div class="container">
   <h2>Liste des stagiaires</h2>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
 
 <table class="table table-striped">
   <thead class="thead-dark">
   <tr>
     <th scope="col">#</th>
     <th scope="col">Nom</th>
-    <th scope="col">Prenom</th>
-    <th scope="col">Action</th>
+    <th scope="col">Prénom</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -21,21 +15,29 @@
     <td>{{m.id}}</td>
     <td>{{m.nom}}</td>
     <td>{{m.prenom}}</td>
-    <td>
-      <button (click)="edit(m)" class="btn btn-primary">EDITER</button>
-      <button (click)="remove(m)" class="btn btn-danger">SUPPRIMER</button>
+    <td class='centre'>
+      <button (click)="edit(t)" class="btn btn-primary btn-xs">
+        DETAILS
+      </button>
+      <button (click)="edit(t)" class="btn btn-success btn-xs">
+        EDITER
+      </button>
+      <button (click)="remove(t)" class="btn btn-danger btn-xs">
+        SUPPRIMER
+      </button>
     </td>
   </tr>
   </tbody>
 </table>
+  <button (click)="toggleEdit()" class="btn btn-primary">
+    Ajouter
+  </button>
 
-</body>
-  </div>
+</div>
 
+<div class="container" *ngIf="formulaireShow">
 
-<div class="container">
-
-  <h2>Ajouter / modifier un stagiaire</h2>
+  <h2>Ajout/modification d'un stagiaire</h2>
   <div class="input-group mb-2">
     <div class="input-group-prepend">
       <div class="input-group-text">Nom de stagiaire</div>
