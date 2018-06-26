@@ -1,0 +1,7 @@
+<p>
+  module works!
+</p>
+
+<select class="form-control" [(ngModel)]="formMatiere.id" *ngFor="let m of matieres">
+  <option value="{{m.id}}">{{m.titre}} {{m.niveau}}</option>
+</select>

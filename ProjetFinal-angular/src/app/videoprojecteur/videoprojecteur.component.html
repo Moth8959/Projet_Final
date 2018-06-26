@@ -1,3 +1,77 @@
-<p>
-  videoprojecteur works!
-</p>
+<div class="container">
+  <h2>Liste des videoprojecteurs</h2>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Coût d'utilisation</th>
+      <th scope="col">Résolution</th>
+      <th scope="col">hdmi</th>
+      <th scope="col">vga</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let v of videoprojecteurs">
+      <td>{{v.code}} </td>
+      <td>{{v.coutUtilisation}}</td>
+      <td>{{v.resolution}}</td>
+      <td>{{v.hdmi}}</td>
+      <td>{{v.vga}}</td>
+<!--      <td><input type="checkbox" [(ngModel)]="formVideoprojecteur.vga"  /></td>-->
+      <td class='centre'>
+        <button (click)="edit(v)" class="btn btn-primary btn-xs">
+          DETAILS
+        </button>
+        <button (click)="edit(v)" class="btn btn-success btn-xs">
+          EDITER
+        </button>
+        <button (click)="remove(v)" class="btn btn-danger btn-xs">
+          SUPPRIMER
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="toggleEdit()" class="btn btn-primary">
+    Ajouter
+  </button>
+
+</div>
+
+<div class="container" *ngIf="formulaireShow">
+
+  <h2>Ajout/modification d'une videoprojecteur</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code de la videoprojecteur</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formVideoprojecteur.code" placeholder="Code de la videoprojecteur" autofocus/>
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Coût d'utilisation de la videoprojecteur</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formVideoprojecteur.coutUtilisation" placeholder="Coût d'utilisation de la videoprojecteur (€/jour)" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Résolution du videoprojecteur</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formVideoprojecteur.resolution" placeholder="Résolution du videoprojecteur" />
+  </div>
+
+
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formVideoprojecteur.code">
+      <span>Valider</span>
+    </button>
+  </div>
+</div>

@@ -22,7 +22,7 @@ import factory.model.VideoProjecteur;
 import factory.dao.VideoProjecteurDao;
 import factory.model.Views;
 @RestController
-@RequestMapping("/videoProjecteur")
+@RequestMapping("/videoprojecteur")
 @CrossOrigin(origins = "*") 
 public class VideoProjecteurRestController {
 

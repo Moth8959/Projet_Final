@@ -14,6 +14,11 @@ import { routesCalendrier} from './calendrier/routeCalendrier';
 import { routesSalle} from './salle/routeSalle';
 import { routesVideoprojecteur} from './videoprojecteur/routeVideoprojecteur';
 import { routesOrdinateur} from './ordinateur/routeOrdinateur';
+import { routesFormation} from './formation/routeFormation';
+import { routesMatiere} from './matiere/routeMatiere';
+import { routesModule} from './module/routeModule';
+
+
 
 import { AppComponent } from './app.component';
 import { ContactComponent } from './Divers/contact.component';
@@ -33,11 +38,17 @@ import { FormateurRestService} from './services/formateur.rest.service';
 import { StagiaireRestService} from './services/stagiaire.rest.service';
 import { TechnicienRestService} from './services/technicien.rest.service';
 import { GestionnaireRestService} from './services/gestionnaire.rest.service';
+import { MatiereRestService} from './services/matiere-rest.service';
+import { SalleRestService} from './services/salle-rest.service';
+import { VideoprojecteurRestService} from './services/videoprojecteur-rest.service';
 import { EventService } from './services/event.service';
 
 import { FormioAppConfig } from 'angular-formio';
 import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
 import { AuthConfig, AppConfig } from '../config';
+import { FormationComponent } from './formation/formation.component';
+import { ModuleComponent } from './module/module.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -62,6 +73,8 @@ const routes: Routes = [
     SalleComponent,
     OrdinateurComponent,
     VideoprojecteurComponent,
+    FormationComponent,
+    ModuleComponent,
   ],
   imports: [
     FormsModule,
@@ -75,12 +88,16 @@ const routes: Routes = [
     RouterModule.forRoot(routesSalle),
     RouterModule.forRoot(routesOrdinateur),
     RouterModule.forRoot(routesVideoprojecteur),
+    RouterModule.forRoot(routesFormation),
+    RouterModule.forRoot(routesMatiere),
+    RouterModule.forRoot(routesModule),
+
     FormsModule,
     FullCalendarModule,
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService,
-    FormioAuthService,
+    FormioAuthService, MatiereRestService, SalleRestService, VideoprojecteurRestService,
     {provide: FormioAuthConfig, useValue: AuthConfig},
     {provide: FormioAppConfig, useValue: AppConfig}],
   bootstrap: [AppComponent]

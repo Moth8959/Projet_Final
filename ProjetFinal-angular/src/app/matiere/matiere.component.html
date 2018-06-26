@@ -1,3 +1,70 @@
-<p>
-  matiere works!
-</p>
+<div class="container">
+  <h2>Liste des matières</h2>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Niveau</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let m of matieres">
+      <td>{{m.id}}</td>
+      <td>{{m.titre}} </td>
+      <td>{{m.niveau}}</td>
+      <td class='centre'>
+        <button (click)="edit(m)" class="btn btn-primary btn-xs">
+          DETAILS
+        </button>
+        <button (click)="edit(m)" class="btn btn-success btn-xs">
+          EDITER
+        </button>
+        <button (click)="remove(m)" class="btn btn-danger btn-xs">
+          SUPPRIMER
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="toggleEdit()" class="btn btn-primary">
+    Ajouter
+  </button>
+
+</div>
+
+<div class="container" *ngIf="formulaireShow">
+
+  <h2>Ajout/modification d'une matiere</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Titre de la matiere</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formMatiere.titre" placeholder="Titre de la matière" />
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Niveau de la matière</div>
+    </div>
+
+      <select class="form-control" [(ngModel)]="formMatiere.niveau">
+        <option value="" selected></option>
+        <option value="Débutant">Débutant</option>
+        <option value="Intermédiaire">Intermédiaire</option>
+        <option value="Avancé" >Avancé</option>
+        <option value="Expert" >Expert</option>
+      </select>
+
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formMatiere.titre">
+      <span>Valider</span>
+    </button>
+  </div>
+</div>

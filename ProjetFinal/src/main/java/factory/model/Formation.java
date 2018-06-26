@@ -3,6 +3,7 @@ package factory.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,6 +26,10 @@ public class Formation {
 	@Id
 	@GeneratedValue(generator = "seqFormation")
 	private Long id;
+	
+	@Column(name = "title", length = 100)
+	@JsonView(Views.ViewCommon.class)
+	private String titre;
 
 	@OneToMany(mappedBy="formation")
 	@JsonView(Views.ViewFormationWithModules.class)
@@ -86,6 +91,14 @@ public class Formation {
 		this.gestionnaire = gestionnaire;
 	}
 
+	public String getTitre() {
+		return titre;
+	}
 
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	
 
 }

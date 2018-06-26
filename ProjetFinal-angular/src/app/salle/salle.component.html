@@ -1,3 +1,69 @@
-<p>
-  salle works!
-</p>
+<div class="container">
+  <h2>Liste des salles</h2>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Capacité</th>
+      <th scope="col">Coût d'utilisation</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let s of salles">
+      <td>{{s.code}} </td>
+      <td>{{s.capacite}}</td>
+      <td>{{s.coutUtilisation}}</td>
+      <td class='centre'>
+        <button (click)="edit(s)" class="btn btn-primary btn-xs">
+          DETAILS
+        </button>
+        <button (click)="edit(s)" class="btn btn-success btn-xs">
+          EDITER
+        </button>
+        <button (click)="remove(s)" class="btn btn-danger btn-xs">
+          SUPPRIMER
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="toggleEdit()" class="btn btn-primary">
+    Ajouter
+  </button>
+
+</div>
+
+<div class="container" *ngIf="formulaireShow">
+
+  <h2>Ajout/modification d'une salle</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code de la salle</div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formSalle.code" placeholder="Code de la salle" autofocus/>
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Capacité de la salle</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formSalle.capacite" placeholder="Capacité de la salle" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Coût d'utilisation de la salle</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formSalle.coutUtilisation" placeholder="Coût d'utilisation de la salle (€/jour)" />
+  </div>
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formSalle.code">
+      <span>Valider</span>
+    </button>
+  </div>
+</div>
