@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ModuleRestService {
-  private mat1: Module;
+
   private url = 'http://localhost:8080/module';
 
   constructor(private http: HttpClient) { }
@@ -27,6 +27,7 @@ export class ModuleRestService {
   public save(module: Module): Observable<any> {
     // POST OU PUT
     if (module.id == null) {
+      console.log(module.formateur);
       return this.http
         .post(this.url + '/', module);
     } else {

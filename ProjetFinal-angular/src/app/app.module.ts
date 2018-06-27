@@ -41,6 +41,7 @@ import { GestionnaireRestService} from './services/gestionnaire.rest.service';
 import { MatiereRestService} from './services/matiere-rest.service';
 import { SalleRestService} from './services/salle-rest.service';
 import { VideoprojecteurRestService} from './services/videoprojecteur-rest.service';
+import { ModuleRestService} from './services/module-rest.service';
 import { EventService } from './services/event.service';
 
 import { FormioAppConfig } from 'angular-formio';
@@ -97,7 +98,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [FormateurRestService, GestionnaireRestService, StagiaireRestService, TechnicienRestService, EventService,
-    FormioAuthService, MatiereRestService, SalleRestService, VideoprojecteurRestService,
+    FormioAuthService, MatiereRestService, SalleRestService, VideoprojecteurRestService, ModuleRestService,
     {provide: FormioAuthConfig, useValue: AuthConfig},
     {provide: FormioAppConfig, useValue: AppConfig}],
   bootstrap: [AppComponent]

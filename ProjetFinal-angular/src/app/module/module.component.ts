@@ -1,6 +1,14 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ModuleRestService} from '../services/module-rest.service';
 import {Module} from '../model/module';
+import {VideoprojecteurRestService} from '../services/videoprojecteur-rest.service';
+import {Videoprojecteur} from '../model/videoprojecteur';
+import {MatiereRestService} from '../services/matiere-rest.service';
+import {Matiere} from '../model/matiere';
+import {Salle} from '../model/salle';
+import {SalleRestService} from '../services/salle-rest.service';
+import {Formateur} from '../model/formateur';
+import {FormateurRestService} from '../services/formateur.rest.service';
 
 
 @Component({
@@ -11,16 +19,37 @@ import {Module} from '../model/module';
 export class ModuleComponent implements OnInit {
 
   private _modules: Module[];
+  private _matieres: Matiere[];
+  private _formateurs: Formateur[];
+  private _salles: Salle[];
+  private _videoprojecteurs: Videoprojecteur[];
   public formulaireShow: Boolean = false;
 
 
-  public formModule: Module = new Module( null, '',  null, null, null, '', '', null);
+  public formModule: Module = new Module( null,  null, null, null, null, '', '');
 
 
-  constructor(private moduleRestService: ModuleRestService) { }
+  constructor(private moduleRestService: ModuleRestService, private videoprojecteurRestService: VideoprojecteurRestService,
+              private matiereRestService: MatiereRestService, private formateurRestService: FormateurRestService, private salleRestService: SalleRestService) { }
 
   get modules(): Module[] {
     return this._modules;
+  }
+
+  get videoprojecteurs(): Videoprojecteur[] {
+    return this._videoprojecteurs;
+  }
+
+  get matieres(): Matiere[] {
+    return this._matieres;
+  }
+
+  get formateurs(): Formateur[] {
+    return this._formateurs;
+  }
+
+  get salles(): Salle[] {
+    return this._salles;
   }
 
   public edit(module: Module) {
@@ -33,7 +62,7 @@ export class ModuleComponent implements OnInit {
   }
 
   public save() {
-
+    console.log(this.moduleRestService);
     this.moduleRestService.save(this.formModule).subscribe(resultat => {
       this.moduleRestService.findAll().subscribe(result => {
         this._modules = result;
@@ -41,7 +70,7 @@ export class ModuleComponent implements OnInit {
         console.log(error);
       });
     });
-    this.formModule = new Module( null, '',  null, null, null, '', '', null);
+    this.formModule = new Module( null,  null, null, null, null, '', '');
   }
 
   public remove(module: Module) {
@@ -59,6 +88,31 @@ export class ModuleComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+
+    this.formateurRestService.findAll().subscribe( resultat => {
+      this._formateurs = resultat;
+    }, error => {
+      console.log(error);
+    });
+
+    this.salleRestService.findAll().subscribe( resultat => {
+      this._salles = resultat;
+    }, error => {
+      console.log(error);
+    });
+
+    this.videoprojecteurRestService.findAll().subscribe( resultat => {
+      this._videoprojecteurs = resultat;
+    }, error => {
+      console.log(error);
+    });
+
+    this.matiereRestService.findAll().subscribe( resultat => {
+      this._matieres = resultat;
+    }, error => {
+      console.log(error);
+    });
+
   }
   @HostListener('window:keydown', ['$event'])
   keyValidation(event: KeyboardEvent) {

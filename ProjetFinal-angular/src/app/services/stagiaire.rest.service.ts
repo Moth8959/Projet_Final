@@ -27,7 +27,7 @@ export class StagiaireRestService {
     // POST OU PUT
     if (stagiaire.id == null) {
      return this.http
-        .post(this.url+ '/', stagiaire);
+        .post(this.url + '/', stagiaire);
     } else {
      return this.http
         .put(this.url + '/' + stagiaire.id, stagiaire);

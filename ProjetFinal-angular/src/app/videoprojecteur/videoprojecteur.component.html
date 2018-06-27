@@ -1,3 +1,5 @@
+<!--<link rel="stylesheet" href="./videoprojecteur.component.css">-->
+
 <div class="container">
   <h2>Liste des videoprojecteurs</h2>
 
@@ -7,9 +9,9 @@
       <th scope="col">Code</th>
       <th scope="col">Coût d'utilisation</th>
       <th scope="col">Résolution</th>
-      <th scope="col">hdmi</th>
-      <th scope="col">vga</th>
-      <th scope="col">Actions</th>
+      <th scope="col" class='text-center'>hdmi</th>
+      <th scope="col" class='text-center'>vga</th>
+      <th scope="col" class='text-center'>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -17,9 +19,14 @@
       <td>{{v.code}} </td>
       <td>{{v.coutUtilisation}}</td>
       <td>{{v.resolution}}</td>
-      <td>{{v.hdmi}}</td>
-      <td>{{v.vga}}</td>
-<!--      <td><input type="checkbox" [(ngModel)]="formVideoprojecteur.vga"  /></td>-->
+      <td class='text-center'>
+        <span *ngIf="v.hdmi" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!v.hdmi" class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td class='text-center'>
+        <span *ngIf="v.vga" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!v.vga" class="glyphicon glyphicon-remove"></span>
+      </td>
       <td class='centre'>
         <button (click)="edit(v)" class="btn btn-primary btn-xs">
           DETAILS
@@ -42,21 +49,21 @@
 
 <div class="container" *ngIf="formulaireShow">
 
-  <h2>Ajout/modification d'une videoprojecteur</h2>
+  <h2>Ajout/modification d'un videoprojecteur</h2>
   <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">Code de la videoprojecteur</div>
+      <div class="input-group-text">Code du videoprojecteur</div>
 
     </div>
-    <input type="text" class="form-control" [(ngModel)]="formVideoprojecteur.code" placeholder="Code de la videoprojecteur" autofocus/>
+    <input type="text" class="form-control" [(ngModel)]="formVideoprojecteur.code" placeholder="Code du videoprojecteur" autofocus/>
   </div>
 
 
   <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">Coût d'utilisation de la videoprojecteur</div>
+      <div class="input-group-text">Coût d'utilisation du videoprojecteur</div>
     </div>
-    <input type="numeric" class="form-control" [(ngModel)]="formVideoprojecteur.coutUtilisation" placeholder="Coût d'utilisation de la videoprojecteur (€/jour)" />
+    <input type="numeric" class="form-control" [(ngModel)]="formVideoprojecteur.coutUtilisation" placeholder="Coût d'utilisation du videoprojecteur (€/jour)" />
   </div>
 
   <div class="input-group mb-2">
@@ -66,6 +73,10 @@
     </div>
     <input type="text" class="form-control" [(ngModel)]="formVideoprojecteur.resolution" placeholder="Résolution du videoprojecteur" />
   </div>
+
+  <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="formVideoprojecteur.hdmi">HDMI</label>
+  <label class="checkbox-inline"><input type="checkbox"  [(ngModel)]="formVideoprojecteur.vga">VGA</label>
+
 
 
 
