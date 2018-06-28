@@ -1,3 +1,100 @@
-<p>
-  ordinateur works!
-</p>
+<!--<link rel="stylesheet" href="./ordinateur.component.css">-->
+
+<div class="container">
+  <h2>Liste des ordinateurs</h2>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Coût d'utilisation</th>
+      <th scope="col">Processeur</th>
+      <th scope="col" class='text-center'>qt ram (Go)</th>
+      <th scope="col" class='text-center'>Capacité DD (Go)</th>
+      <th scope="col" class='text-center'>Année d'achat</th>
+      <th scope="col" class='text-center'>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let v of ordinateurs">
+      <td>{{v.code}} </td>
+      <td>{{v.coutUtilisation}}</td>
+      <td>{{v.processeur}}</td>
+      <td>{{v.ram}}</td>
+      <td>{{v.capaciteDD}}</td>
+      <td>{{v.anneAchat}}</td>
+      <td class='centre'>
+        <button (click)="edit(v)" class="btn btn-primary btn-xs">
+          DETAILS
+        </button>
+        <button (click)="edit(v)" class="btn btn-success btn-xs">
+          EDITER
+        </button>
+        <button (click)="remove(v)" class="btn btn-danger btn-xs">
+          SUPPRIMER
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="toggleEdit()" class="btn btn-primary">
+    Ajouter
+  </button>
+
+</div>
+
+<div class="container" *ngIf="formulaireShow">
+
+  <h2>Ajout/modification d'un ordinateur</h2>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code du ordinateur</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formOrdinateur.code" placeholder="Code du ordinateur" autofocus/>
+  </div>
+
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Coût d'utilisation du ordinateur</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formOrdinateur.coutUtilisation" placeholder="Coût d'utilisation du ordinateur (€/jour)" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Processeur</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formOrdinateur.processeur" placeholder="Processeur" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Ram</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formOrdinateur.ram" placeholder="(Go)" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Capacité du disque dur</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formOrdinateur.capaciteDD" placeholder="(Go)" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Année d'achat</div>
+    </div>
+    <input type="numeric" class="form-control" [(ngModel)]="formOrdinateur.anneeAchat" placeholder="Année d'achat" />
+  </div>
+
+
+
+
+  <div class="row mb-2 col-auto">
+    <button (click)="save()" class="btn btn-success" [disabled]="!formOrdinateur.code">
+      <span>Valider</span>
+    </button>
+  </div>
+</div>

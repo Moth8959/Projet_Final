@@ -9,18 +9,18 @@
       <th scope="col">Nom de Formateur</th>
       <th scope="col">Code de la salle</th>
       <th scope="col">Code du videoprojecteur</th>
-
+      <th scope="col" class="text-center">Action</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let m of modules">
-      <td>{{m.id}}</td>
-      <td>{{m.matiere.nom}}</td>
-      <td>{{m.formateur.nom}}</td>
-      <td>{{m.salle.code}}</td>
-      <td>{{m.videoprojecteur.code}}</td>
+      <td><span *ngIf="m">{{m.id}}</span></td>
+      <td><span *ngIf="m.matiere">{{m.matiere.titre}}</span></td>
+      <td><span *ngIf="m.formateur">{{m.formateur.nom}}</span></td>
+      <td><span *ngIf="m.salle">{{m.salle.code}}</span></td>
+      <td><span *ngIf="m.videoprojecteur">{{m.videoprojecteur.code}}</span></td>
 
-      <td class='centre'>
+      <td class="text-center">
         <button (click)="edit(m)" class="btn btn-primary btn-xs">
           DETAILS
         </button>
@@ -51,7 +51,7 @@
       <div class="input-group-text">Choix Matière</div>
     </div>
     <select class="form-control" [(ngModel)]="formModule.matiere" >
-      <option *ngFor="let m of matieres" value="{{m}}">{{m.titre}}</option>
+      <option *ngFor="let m of matieres" [ngValue]="m">{{m.titre}}</option>
     </select>
   </div>
 
@@ -59,8 +59,8 @@
     <div class="input-group-prepend">
       <div class="input-group-text">Choix du Formateur</div>
     </div>
-    <select class="form-control" [(ngModel)]="formModule.formateur" >
-      <option *ngFor="let f of formateurs" value="{{f}}">{{f.nom}}</option>
+    <select class="form-control" [(ngModel)]="formModule.formateur">
+      <option *ngFor="let f of formateurs" [ngValue]="f"  ><p *ngIf="f">{{f.nom}}</p> </option>
     </select>
   </div>
 
@@ -69,7 +69,7 @@
       <div class="input-group-text">Choix de la salle</div>
     </div>
     <select class="form-control" [(ngModel)]="formModule.salle" >
-      <option *ngFor="let s of salles" value="{{s}}">{{s.code}}</option>
+      <option *ngFor="let s of salles" [ngValue]="s" >{{s.code}}</option>
     </select>
   </div>
 
@@ -78,7 +78,7 @@
       <div class="input-group-text">Choix vidéoprojecteur</div>
     </div>
     <select class="form-control" [(ngModel)]="formModule.videoprojecteur" >
-      <option *ngFor="let v of videoprojecteurs" value="{{v}}">{{v.code}}</option>
+      <option *ngFor="let v of videoprojecteurs" [ngValue]="v" >{{v.code}}</option>
     </select>
   </div>
 

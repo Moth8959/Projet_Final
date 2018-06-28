@@ -3,26 +3,35 @@
 
 <table class="table table-striped">
   <thead class="thead-dark">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Nom</th>
-    <th scope="col">Prénom</th>
-    <th scope="col">Actions</th>
+  <tr >
+    <th scope="col" class="text-center" sortable-column="id">#</th>
+    <th scope="col" class="text-center" sortable-column="nom">Nom</th>
+    <th scope="col" class="text-center" sortable-column="prenom">Prénom</th>
+    <th scope="col" class="text-center" sortable-column="niveau">Niveau</th>
+    <th scope="col" class="text-center" >Formation</th>
+    <th scope="col" class="text-center">Ordinateur</th>
+    <th scope="col" class="text-center">Adresse</th>
+    <th scope="col" class="text-center">Actions</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let m of stagiaires">
-    <td>{{m.id}}</td>
-    <td>{{m.nom}}</td>
-    <td>{{m.prenom}}</td>
-    <td class='centre'>
-      <button (click)="edit(t)" class="btn btn-primary btn-xs">
+  <tr *ngFor="let s of stagiaires">
+    <td class="text-center">{{s.id}}</td>
+    <td class="text-center">{{s.nom}}</td>
+    <td class="text-center">{{s.prenom}}</td>
+    <td class="text-center">{{s.niveau}}</td>
+    <td class="text-center">{{s.formation}}</td>
+    <td class="text-center"><span *ngIf="s.ordinateur">{{s.ordinateur.code}}</span></td>
+    <td class="text-center">{{s.rue}} {{s.codePostal}} {{s.ville}}</td>
+
+    <td class="text-center">
+      <a href="#" [routerLink]="['/stagiaire',s.id]" class="btn btn-primary btn-xs">
         DETAILS
-      </button>
-      <button (click)="edit(t)" class="btn btn-success btn-xs">
+      </a>
+      <button (click)="edit(s)" class="btn btn-success btn-xs">
         EDITER
       </button>
-      <button (click)="remove(t)" class="btn btn-danger btn-xs">
+      <button (click)="remove(s)" class="btn btn-danger btn-xs">
         SUPPRIMER
       </button>
     </td>
@@ -40,19 +49,81 @@
   <h2>Ajout/modification d'un stagiaire</h2>
   <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">Nom de stagiaire</div>
-
+      <div class="input-group-text">Nom du stagiaire</div>
     </div>
-    <input type="text" class="form-control" [(ngModel)]="formStagiaire.nom" placeholder="Nom de stagiaire" />
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.nom" placeholder="Nom du stagiaire" />
   </div>
 
 
   <div class="input-group mb-2">
     <div class="input-group-prepend">
-      <div class="input-group-text">Prenom de stagiaire</div>
-
+      <div class="input-group-text">Prénom du stagiaire</div>
     </div>
-    <input type="text" class="form-control" [(ngModel)]="formStagiaire.prenom" placeholder="prenom de stagiaire" />
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.prenom" placeholder="prénom du stagiaire" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Niveau du stagiaire</div>
+    </div>
+    <select class="form-control" [(ngModel)]="formStagiaire.niveau">
+      <option value="" selected></option>
+      <option value="Débutant">Débutant</option>
+      <option value="Intermédiaire">Intermédiaire</option>
+      <option value="Avancé" >Avancé</option>
+      <option value="Expert" >Expert</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Formation</div>
+    </div>
+    <select class="form-control" [(ngModel)]="formStagiaire.formation">
+      <option value="" selected></option>
+
+    </select>
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Affectation ordinateur</div>
+    </div>
+    <select class="form-control" [(ngModel)]="formStagiaire.ordinateur" >
+      <option *ngFor="let o of ordinateurs" [ngValue]="o" >{{o.code}}</option>
+    </select>
+  </div>
+
+  <hr />
+
+  <h3>Adresse</h3>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Rue</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.rue" placeholder="rue du stagiaire" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Code postal</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.codePostal" placeholder="code postal du stagiaire" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Ville</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.ville" placeholder="ville du stagiaire" />
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Coordonnées</div>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="formStagiaire.coordonnees" placeholder="Email/téléphone du stagiaire" />
   </div>
 
   <div class="row mb-2 col-auto">
@@ -60,4 +131,46 @@
       <span>Valider</span>
     </button>
   </div>
-</div>
+
+<!--  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a data-toggle="collapse" href="#collapse1">Adresse</a>
+      </h3>
+    </div>
+    <div id="collapse1" class="panel-body panel-collapse collapse">
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Rue</div>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="formStagiaire.rue" placeholder="rue du stagiaire" />
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Code postal</div>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="formStagiaire.codePostal" placeholder="code postal du stagiaire" />
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Ville</div>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="formStagiaire.ville" placeholder="ville du stagiaire" />
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Coordonnées</div>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="formStagiaire.coordonnees" placeholder="Email/téléphone du stagiaire" />
+      </div>
+
+    </div>
+  </div>
+</div>-->
+
+
+

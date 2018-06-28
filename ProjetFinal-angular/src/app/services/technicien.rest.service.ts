@@ -14,7 +14,7 @@ export class TechnicienRestService {
   constructor(private http: HttpClient) { }
 
   public findAll(): Observable <Technicien[]> {
-    console.log('a l interieur du findAll du rest service');
+    console.log('à l intérieur du findAll du rest service');
     return this.http.get <Technicien[]>(this.url);
   }
 

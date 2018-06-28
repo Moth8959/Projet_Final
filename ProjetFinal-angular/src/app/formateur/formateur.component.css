@@ -9,3 +9,7 @@ body {
   /*max-width: 900px;*/
   margin: 15px;
 }
+
+button{
+  margin: 3px
+}

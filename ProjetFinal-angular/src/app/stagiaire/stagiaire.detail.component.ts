@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Stagiaire} from '../model/stagiaire';
 import {ActivatedRoute} from '@angular/router';
 import {StagiaireRestService} from '../services/stagiaire.rest.service';
+import {AdresseComponent} from '../Divers/adresse.component';
 
 @Component({
   selector: 'app-stagiaire.detail',
@@ -26,6 +27,8 @@ export class StagiaireDetailComponent implements OnInit {
   }
 
 }
+
+
 
 
 

@@ -26,11 +26,11 @@ export class ModuleComponent implements OnInit {
   public formulaireShow: Boolean = false;
 
 
-  public formModule: Module = new Module( null,  null, null, null, null, '', '');
+  public formModule: Module = new Module( null,  null, null, null, undefined, '', '');
 
 
-  constructor(private moduleRestService: ModuleRestService, private videoprojecteurRestService: VideoprojecteurRestService,
-              private matiereRestService: MatiereRestService, private formateurRestService: FormateurRestService, private salleRestService: SalleRestService) { }
+  constructor(private moduleRestService: ModuleRestService, private salleRestService: SalleRestService, private matiereRestService: MatiereRestService, private videoprojecteurRestService: VideoprojecteurRestService,
+              private formateurRestService: FormateurRestService ) { }
 
   get modules(): Module[] {
     return this._modules;
@@ -55,6 +55,7 @@ export class ModuleComponent implements OnInit {
   public edit(module: Module) {
     this.formModule = module;
     this.formulaireShow = true;
+    console.log('méthode edit() entrée ' + JSON.stringify(this.formModule));
   }
 
   public toggleEdit() {
@@ -62,7 +63,7 @@ export class ModuleComponent implements OnInit {
   }
 
   public save() {
-    console.log(this.moduleRestService);
+    console.log(JSON.stringify(this.formModule.videoprojecteur));
     this.moduleRestService.save(this.formModule).subscribe(resultat => {
       this.moduleRestService.findAll().subscribe(result => {
         this._modules = result;
@@ -70,7 +71,7 @@ export class ModuleComponent implements OnInit {
         console.log(error);
       });
     });
-    this.formModule = new Module( null,  null, null, null, null, '', '');
+    this.formModule = new Module( null,  null, null, null,  undefined , '', '');
   }
 
   public remove(module: Module) {

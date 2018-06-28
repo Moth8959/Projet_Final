@@ -33,11 +33,11 @@ public class Stagiaire extends RessourcesHumaines{
 	@Enumerated(EnumType.STRING)
 	@Column(name = "level", length = 30)
 	@JsonView(Views.ViewCommon.class)
-	private NivEnum nivEnum;
+	private NivEnum niveau;
 	
 	@ManyToOne
 	@JoinColumn(name = "computer_id")
-	@JsonView(Views.ViewStagiaireWithOrdinateurs.class)
+	@JsonView(Views.ViewCommon.class)
 	private Ordinateur ordinateur;
 
 	
@@ -49,26 +49,26 @@ public class Stagiaire extends RessourcesHumaines{
 
 	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
-			Boolean accesTechnicien, String username, String password, Formation formation, NivEnum nivEnum, Ordinateur ordinateur) {
+			Boolean accesTechnicien, String username, String password, Formation formation, NivEnum niveau, Ordinateur ordinateur) {
 		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
 				accesStagiaire, accesTechnicien, username, password);
 		this.formation = formation;
-		this.nivEnum = nivEnum;
+		this.niveau = niveau;
 		this.ordinateur = ordinateur;
 	}
 	
 	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
 			String codePostal, Boolean accesAdministrateur, Boolean accesFormateur, Boolean accesStagiaire,
-			Boolean accesTechnicien, String username, String password, NivEnum nivEnum) {
+			Boolean accesTechnicien, String username, String password, NivEnum niveau) {
 		super(nom, prenom, coordonnees, rue, ville, codePostal, accesAdministrateur, accesAdministrateur,
 				accesStagiaire, accesTechnicien, username, password);
-		this.nivEnum = nivEnum;
+		this.niveau = niveau;
 	}
 	
 	public Stagiaire(String nom, String prenom, String coordonnees, String rue, String ville,
-			String codePostal, NivEnum nivEnum) {
+			String codePostal, NivEnum niveau) {
 		super(nom, prenom, coordonnees, rue, ville, codePostal);
-		this.nivEnum = nivEnum;
+		this.niveau = niveau;
 	}
 
 	/**** METHODES*/	
@@ -82,11 +82,11 @@ public class Stagiaire extends RessourcesHumaines{
 	}
 
 	public NivEnum getNivEnum() {
-		return nivEnum;
+		return niveau;
 	}
 
-	public void setNivEnum(NivEnum nivEnum) {
-		this.nivEnum = nivEnum;
+	public void setNivEnum(NivEnum niveau) {
+		this.niveau = niveau;
 	}
 
 	public Ordinateur getOrdinateur() {

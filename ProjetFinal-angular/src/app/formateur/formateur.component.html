@@ -7,7 +7,7 @@
     <th scope="col">#</th>
     <th scope="col">Nom</th>
     <th scope="col">Prénom</th>
-    <th scope="col">Actions</th>
+    <th scope="col" class="text-center">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -15,14 +15,14 @@
     <td>{{f.id}}</td>
     <td>{{ f.nom }}</td>
     <td>{{ f.prenom }}</td>
-    <td class='centre'>
-      <button (click)="edit(t)" class="btn btn-primary btn-xs">
+    <td class="text-center">
+      <button (click)="edit(f)" class="btn btn-primary btn-xs">
         DETAILS
       </button>
-      <button (click)="edit(t)" class="btn btn-success btn-xs">
+      <button (click)="edit(f)" class="btn btn-success btn-xs">
         EDITER
       </button>
-      <button (click)="remove(t)" class="btn btn-danger btn-xs">
+      <button (click)="remove(f)" class="btn btn-danger btn-xs">
         SUPPRIMER
       </button>
     </td>

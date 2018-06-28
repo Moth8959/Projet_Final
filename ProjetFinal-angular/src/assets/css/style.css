@@ -3,6 +3,10 @@ body{
 
 }
 
+.form-control {
 
+  padding: 0px 12px !important; /* until desired*/
+
+}
 
 

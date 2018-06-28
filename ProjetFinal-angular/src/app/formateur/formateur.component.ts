@@ -43,8 +43,8 @@ export class FormateurComponent implements OnInit {
 
   public remove(formateur: Formateur) {
     this.formateurRestService.delete(formateur).subscribe(resultat =>{
-      this.formateurRestService.findAll().subscribe(resultat => {
-        this._formateurs = resultat;
+      this.formateurRestService.findAll().subscribe(resultat2 => {
+        this._formateurs = resultat2;
       }, error => {
         console.log(error);
       });

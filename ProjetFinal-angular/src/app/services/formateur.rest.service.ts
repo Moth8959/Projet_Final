@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Formateur} from '../model/formateur';
 import {Formateurjson} from '../model/formateurjson';
-import {Technicienjson} from '../model/technicienjson';
+
 
 
 @Injectable({
@@ -29,7 +29,7 @@ export class FormateurRestService {
     if (formateur.id == null) {
       this.form1 = new Formateurjson(formateur);
       return this.http
-        .post(this.url+ '/', this.form1);
+        .post(this.url + '/', this.form1);
     } else {
       return this.http
         .put(this.url + '/' + formateur.id, formateur);

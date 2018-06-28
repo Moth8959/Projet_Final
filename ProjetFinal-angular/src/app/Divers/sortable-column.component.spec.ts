@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { SortableColumnComponent } from './sortable-column.component';
 
-
-describe('Stagiaire.DetailComponent', () => {
-  let component: Stagiaire.DetailComponent;
-  let fixture: ComponentFixture<Stagiaire.DetailComponent>;
+describe('SortableColumnComponent', () => {
+  let component: SortableColumnComponent;
+  let fixture: ComponentFixture<SortableColumnComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Stagiaire.DetailComponent ]
+      declarations: [ SortableColumnComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Stagiaire.DetailComponent);
+    fixture = TestBed.createComponent(SortableColumnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
